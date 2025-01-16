@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class AgentRenderer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void FaceDirection(Vector2 input)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(input.x < 0)
+        {
+            transform.parent.localScale = new Vector3(-1 * Mathf.Abs(transform.parent.localScale.x),
+                transform.parent.localScale.y, transform.parent.localScale.z);
+        }
+        else if(input.x > 0)
+        {
+            transform.parent.localScale = new Vector3(Mathf.Abs(transform.parent.localScale.x),
+               transform.parent.localScale.y, transform.parent.localScale.z);
+        }
     }
 }

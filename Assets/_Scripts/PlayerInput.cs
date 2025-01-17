@@ -6,15 +6,10 @@ using UnityEngine.Events;
 
 public class PlayerInput : MonoBehaviour
 {
-    public Vector2 MovementVector { get; set; }
-
-    public event Action OnAttack, OnJumpPressed, OnJumpReleased, OnWeaponChange;
+    public Vector2 MovementVector { get; private set; }
 
     public event Action<Vector2> OnMovement;
 
-    public KeyCode jumpKey, attackKey, weaponChangeKey, menuKey;
-
-    public UnityEvent OnMenuKeyPressed;
 
 
 
@@ -23,15 +18,8 @@ public class PlayerInput : MonoBehaviour
         if(Time.timeScale > 0)
         {
             GetMovementInput();
-            GetJumpInput();
-            GetAttackInput();
-            GetWeaponSwapInput();
         }
-
-        GetMenuInput();
     }
-
-
 
     private void GetMovementInput()
     {
@@ -42,42 +30,6 @@ public class PlayerInput : MonoBehaviour
     private Vector2 GetMovementVector()
     {
         return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-    }
-
-    private void GetJumpInput()
-    {
-        if (Input.GetKeyDown(jumpKey))
-        {
-            OnJumpPressed?.Invoke();
-        }
-        if (Input.GetKeyUp(jumpKey))
-        {
-            OnJumpReleased?.Invoke();
-        }
-    }
-
-    private void GetAttackInput()
-    {
-        if (Input.GetKeyDown(attackKey))
-        {
-            OnAttack?.Invoke();
-        }
-    }
-
-    private void GetWeaponSwapInput()
-    {
-        if (Input.GetKeyDown(weaponChangeKey))
-        {
-            OnWeaponChange?.Invoke();
-        }
-    }
-
-    private void GetMenuInput()
-    {
-        if (Input.GetKeyDown(menuKey))
-        {
-            OnMenuKeyPressed?.Invoke();
-        }
     }
 
 }

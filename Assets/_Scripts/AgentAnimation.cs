@@ -26,7 +26,7 @@ public class AgentAnimation : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-    
+
     public void PlayAnimation(AnimationType animationType)
     {
         switch (animationType)
@@ -56,11 +56,11 @@ public class AgentAnimation : MonoBehaviour
         }
     }
 
-    public void Play(string name) // play custom animations for specific cases
+
+    private void Play(string name)
     {
         anim.Play(name, -1, 0f);
     }
-
 
 }
 

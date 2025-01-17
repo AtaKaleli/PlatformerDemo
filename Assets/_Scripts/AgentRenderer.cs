@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class AgentRenderer : MonoBehaviour
 {
-    public void FaceDirection(Vector2 input)
+    
+
+    public void FlipController(Vector2 input)
     {
         if(input.x < 0)
         {
@@ -14,7 +16,7 @@ public class AgentRenderer : MonoBehaviour
         else if(input.x > 0)
         {
             transform.parent.localScale = new Vector3(Mathf.Abs(transform.parent.localScale.x),
-               transform.parent.localScale.y, transform.parent.localScale.z);
+                transform.parent.localScale.y, transform.parent.localScale.z);
         }
     }
 }

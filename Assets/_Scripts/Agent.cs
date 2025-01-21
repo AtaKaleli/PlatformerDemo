@@ -10,6 +10,7 @@ public class Agent : MonoBehaviour
     public AgentAnimation animationController;
     public AgentRenderer agentRenderer;
 
+    
 
     private void Awake()
     {
@@ -26,8 +27,14 @@ public class Agent : MonoBehaviour
         playerInput.OnMovement += agentRenderer.FlipController;
     }
 
+    public void ChangeState(State newState)
+    {
+
+    }
+
     private void HandleMovement(Vector2 input)
     {
+        /*
         if (Mathf.Abs(input.x) > 0)
         {
             if (Mathf.Abs(rb.velocity.x) < 0.01f)
@@ -43,6 +50,6 @@ public class Agent : MonoBehaviour
                 animationController.PlayAnimation(AnimationType.idle);
             }
             rb.velocity = new Vector2(0, rb.velocity.y);
-        }
+        }*/
     }
 }

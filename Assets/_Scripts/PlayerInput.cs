@@ -10,7 +10,9 @@ public class PlayerInput : MonoBehaviour
 
     public event Action<Vector2> OnMovement;
 
+    public event Action OnJumpPressed, OnJumpReleased;
 
+    public KeyCode jumpKey;
 
 
     private void Update()
@@ -18,6 +20,19 @@ public class PlayerInput : MonoBehaviour
         if(Time.timeScale > 0)
         {
             GetMovementInput();
+            GetJumpInput();
+        }
+    }
+
+    private void GetJumpInput()
+    {
+        if (Input.GetKeyDown(jumpKey))
+        {
+            OnJumpPressed?.Invoke();
+        }
+        if (Input.GetKeyUp(jumpKey))
+        {
+            OnJumpReleased?.Invoke();
         }
     }
 
@@ -31,5 +46,7 @@ public class PlayerInput : MonoBehaviour
     {
         return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
+
+
 
 }

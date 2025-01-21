@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Agent : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private PlayerInput playerInput;
-    private AgentAnimation animationController;
-    private AgentRenderer agentRenderer;
+    public Rigidbody2D rb;
+    public PlayerInput playerInput;
+    public AgentAnimation animationController;
+    public AgentRenderer agentRenderer;
 
 
     private void Awake()
@@ -19,6 +19,7 @@ public class Agent : MonoBehaviour
         agentRenderer = GetComponentInChildren<AgentRenderer>();
     }
 
+
     private void Start()
     {
         playerInput.OnMovement += HandleMovement;
@@ -27,9 +28,9 @@ public class Agent : MonoBehaviour
 
     private void HandleMovement(Vector2 input)
     {
-        if(Mathf.Abs(input.x) > 0)
+        if (Mathf.Abs(input.x) > 0)
         {
-            if(Mathf.Abs(rb.velocity.x) < 0.01f)
+            if (Mathf.Abs(rb.velocity.x) < 0.01f)
             {
                 animationController.PlayAnimation(AnimationType.run);
             }

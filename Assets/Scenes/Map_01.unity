@@ -802,13 +802,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  agentInput: {fileID: 0}
+  playerInput: {fileID: 0}
   animationController: {fileID: 0}
   agentRenderer: {fileID: 0}
-  currentState: {fileID: 0}
-  previousState: {fileID: 0}
-  idleState: {fileID: 1675347108}
-  stateName: 
 --- !u!114 &1666163917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,6 +817,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cf5bc08e132aa648b2f60e510e869d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontalMovementDirection: 0
+  currentSpeed: 0
+  currentVelocity: {x: 0, y: 0}
 --- !u!1 &1675347106
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,13 +865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf6c6ff79c54674785846e5bc43d988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
-  MoveState: {fileID: 1675347109}
+  moveState: {fileID: 1675347109}
 --- !u!114 &1675347109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,20 +875,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1675347106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c3464cfed4cd7341b30efda8a206f08, type: 3}
+  m_Script: {fileID: 11500000, guid: b9f249079996c4f40b0758f00188aec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
-  movementData: {fileID: 0}
   idleState: {fileID: 1675347108}
-  acceleration: 50
-  deacceleration: 50
-  maxSpeed: 6
 --- !u!1 &1724663437
 GameObject:
   m_ObjectHideFlags: 0

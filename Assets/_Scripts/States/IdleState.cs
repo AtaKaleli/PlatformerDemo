@@ -5,6 +5,7 @@ using UnityEngine.Windows;
 
 public class IdleState : State
 {
+    [Header("State Information")]
     public State moveState;
 
     protected override void EnterState()
@@ -14,10 +15,10 @@ public class IdleState : State
 
     protected override void HandleMovement(Vector2 input)
     {
-        if (Mathf.Abs(input.x) > 0)
+        if (Mathf.Abs(input.x) > 0.01f)
         {
             agent.ChangeState(moveState);
         }
-        
     }
+
 }

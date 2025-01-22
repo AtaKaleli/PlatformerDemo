@@ -1,30 +1,35 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Agent : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public PlayerInput playerInput;
+    public PlayerInput agentInput;
     public AgentAnimation animationController;
     public AgentRenderer agentRenderer;
 
-    
+
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerInput = GetComponentInParent<PlayerInput>();
+        agentInput = GetComponentInParent<PlayerInput>();
         animationController = GetComponentInChildren<AgentAnimation>();
         agentRenderer = GetComponentInChildren<AgentRenderer>();
+
+
+
     }
 
 
     private void Start()
     {
-        playerInput.OnMovement += HandleMovement;
-        playerInput.OnMovement += agentRenderer.FlipController;
+
+        agentInput.OnMovement += HandleMovement;
+        agentInput.OnMovement += agentRenderer.FlipController;
     }
 
     public void ChangeState(State newState)
@@ -34,7 +39,7 @@ public class Agent : MonoBehaviour
 
     private void HandleMovement(Vector2 input)
     {
-        /*
+        
         if (Mathf.Abs(input.x) > 0)
         {
             if (Mathf.Abs(rb.velocity.x) < 0.01f)
@@ -50,6 +55,6 @@ public class Agent : MonoBehaviour
                 animationController.PlayAnimation(AnimationType.idle);
             }
             rb.velocity = new Vector2(0, rb.velocity.y);
-        }*/
+        }
     }
 }

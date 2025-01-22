@@ -17,18 +17,18 @@ public abstract class State : MonoBehaviour
 
     public void Enter()
     {
-        this.agent.playerInput.OnMovement += HandleMovement;
-        this.agent.playerInput.OnJumpPressed += HandleJumpPressed;
-        this.agent.playerInput.OnJumpReleased += HandleJumpReleased;
+        this.agent.agentInput.OnMovement += HandleMovement;
+        this.agent.agentInput.OnJumpPressed += HandleJumpPressed;
+        this.agent.agentInput.OnJumpReleased += HandleJumpReleased;
         //OnEnter?.Invoke();
         EnterState();
     }
 
     public void Exit()
     {
-        this.agent.playerInput.OnMovement -= HandleMovement;
-        this.agent.playerInput.OnJumpPressed -= HandleJumpPressed;
-        this.agent.playerInput.OnJumpReleased -= HandleJumpReleased;
+        this.agent.agentInput.OnMovement -= HandleMovement;
+        this.agent.agentInput.OnJumpPressed -= HandleJumpPressed;
+        this.agent.agentInput.OnJumpReleased -= HandleJumpReleased;
         //OnExit?.Invoke();
         ExitState();
     }

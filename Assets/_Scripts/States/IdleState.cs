@@ -6,7 +6,7 @@ using UnityEngine.Windows;
 public class IdleState : State
 {
     [Header("State Information")]
-    public State moveState;
+    public State MoveState;
 
     protected override void EnterState()
     {
@@ -17,7 +17,7 @@ public class IdleState : State
     {
         if (Mathf.Abs(input.x) > 0.01f)
         {
-            agent.ChangeState(moveState);
+            agent.ChangeState(MoveState);
         }
     }
 

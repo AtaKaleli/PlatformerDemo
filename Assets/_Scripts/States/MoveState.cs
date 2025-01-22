@@ -5,7 +5,7 @@ public class MoveState : State
     private MovementData movementData;
 
     [Header("State Information")]
-    public State idleState;
+    public State IdleState;
 
     public float acceleration, deacceleration, maxSpeed;
 
@@ -26,7 +26,7 @@ public class MoveState : State
         
         if (Mathf.Abs(agent.rb.velocity.x) < 0.01f)
         {
-            agent.ChangeState(idleState);
+            agent.ChangeState(IdleState);
         }
     }
 
@@ -47,11 +47,11 @@ public class MoveState : State
 
     private void CalculateHorizontalDirection(MovementData movementData) // calculates the direction of the player
     {
-        if (Mathf.Abs(movementData.movementVector.x) > 0)
+        if (movementData.movementVector.x > 0)
         {
             movementData.horizontalMovementDirection = 1;
         }
-        else if (Mathf.Abs(movementData.movementVector.x) < 0)
+        else if (movementData.movementVector.x < 0)
         {
             movementData.horizontalMovementDirection = -1;
         }
@@ -69,7 +69,7 @@ public class MoveState : State
         }
 
         // make sure that speed do not exceed the max and min limits as we are increasing and decreasing it in the calculation
-        Mathf.Clamp(movementData.currentSpeed, 0, maxSpeed); 
+        movementData.currentSpeed = Mathf.Clamp(movementData.currentSpeed, 0, maxSpeed); 
 
     }
 

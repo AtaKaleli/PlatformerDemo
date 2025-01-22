@@ -11,6 +11,9 @@ public class Agent : MonoBehaviour
     public AgentAnimation animationController;
     public AgentRenderer agentRenderer;
 
+    public State IdleState;
+    private State currentState = null;
+
 
 
     private void Awake()
@@ -19,42 +22,52 @@ public class Agent : MonoBehaviour
         agentInput = GetComponentInParent<PlayerInput>();
         animationController = GetComponentInChildren<AgentAnimation>();
         agentRenderer = GetComponentInChildren<AgentRenderer>();
-
-
+        
+        AssignAgentToStates();
 
     }
 
+    
 
     private void Start()
     {
-
-        agentInput.OnMovement += HandleMovement;
         agentInput.OnMovement += agentRenderer.FlipController;
+        ChangeState(IdleState);
+    }
+
+    private void Update()
+    {
+        currentState.UpdateState();
+    }
+
+    private void FixedUpdate()
+    {
+        currentState.FixedUpdateState();
+    }
+
+    private void AssignAgentToStates()
+    {
+        State[] states = GetComponentsInChildren<State>();
+        foreach (var state in states)
+        {
+            state.InitializeState(this);
+        }
     }
 
     public void ChangeState(State newState)
     {
-
-    }
-
-    private void HandleMovement(Vector2 input)
-    {
-        
-        if (Mathf.Abs(input.x) > 0)
+        if(currentState != null)
         {
-            if (Mathf.Abs(rb.velocity.x) < 0.01f)
-            {
-                animationController.PlayAnimation(AnimationType.run);
-            }
-            rb.velocity = new Vector2(input.x * 5f, rb.velocity.y);
+            currentState.Exit();
         }
-        else
+
+        currentState = newState;
+
+        if(currentState != null)
         {
-            if (Mathf.Abs(rb.velocity.x) > 0.01f)
-            {
-                animationController.PlayAnimation(AnimationType.idle);
-            }
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            currentState.Enter();
         }
     }
+
+   
 }

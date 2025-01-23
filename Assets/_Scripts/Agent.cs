@@ -10,6 +10,7 @@ public class Agent : MonoBehaviour
     public PlayerInput agentInput;
     public AgentAnimation animationController;
     public AgentRenderer agentRenderer;
+    public GroundDetector groundDetector;
 
     public State IdleState;
     private State currentState = null;
@@ -22,6 +23,7 @@ public class Agent : MonoBehaviour
         agentInput = GetComponentInParent<PlayerInput>();
         animationController = GetComponentInChildren<AgentAnimation>();
         agentRenderer = GetComponentInChildren<AgentRenderer>();
+        groundDetector = GetComponentInChildren<GroundDetector>();
         
         AssignAgentToStates();
 
@@ -37,11 +39,13 @@ public class Agent : MonoBehaviour
 
     private void Update()
     {
+
         currentState.UpdateState();
     }
 
     private void FixedUpdate()
     {
+        groundDetector.CheckIsGrounded();
         currentState.FixedUpdateState();
     }
 

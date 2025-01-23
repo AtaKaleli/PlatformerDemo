@@ -41,7 +41,7 @@ public class MoveState : State
         movementData.currentVelocity =
             new Vector2(movementData.horizontalMovementDirection * movementData.currentSpeed, agent.rb.velocity.y);
 
-        SetPlayerVelocity();
+        SetPlayerVelocity(); // finally, set the player rb velocity
 
     }
 

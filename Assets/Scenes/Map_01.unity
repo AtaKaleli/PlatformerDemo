@@ -824,6 +824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63508b76d0e320b43b2d5f6a1b1c7630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agentData: {fileID: 11400000, guid: 5a55348b50672e8459c1b2afd68cd23a, type: 2}
   rb: {fileID: 0}
   agentInput: {fileID: 0}
   animationController: {fileID: 0}
@@ -857,6 +858,8 @@ GameObject:
   - component: {fileID: 1675347107}
   - component: {fileID: 1675347108}
   - component: {fileID: 1675347109}
+  - component: {fileID: 1675347111}
+  - component: {fileID: 1675347110}
   m_Layer: 0
   m_Name: States
   m_TagString: Untagged
@@ -891,6 +894,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf6c6ff79c54674785846e5bc43d988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpState: {fileID: 1675347111}
+  FallState: {fileID: 1675347110}
   MoveState: {fileID: 1675347109}
 --- !u!114 &1675347109
 MonoBehaviour:
@@ -904,10 +909,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f249079996c4f40b0758f00188aec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpState: {fileID: 1675347111}
+  FallState: {fileID: 1675347110}
   IdleState: {fileID: 1675347108}
-  acceleration: 50
-  deacceleration: 50
-  maxSpeed: 6
+--- !u!114 &1675347110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675347106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309f061bdb8078f4d95d1bd144f45249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JumpState: {fileID: 1675347111}
+  FallState: {fileID: 1675347110}
+  IdleState: {fileID: 1675347108}
+--- !u!114 &1675347111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675347106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5858b24f7f0bc9b4c8d5887677390f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JumpState: {fileID: 1675347111}
+  FallState: {fileID: 1675347110}
+  IdleState: {fileID: 1675347108}
 --- !u!1 &1724663437
 GameObject:
   m_ObjectHideFlags: 0

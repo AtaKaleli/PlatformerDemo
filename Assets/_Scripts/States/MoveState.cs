@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class MoveState : State
 {
-    private MovementData movementData;
+    protected MovementData movementData;
 
     [Header("State Information")]
     public State IdleState;
 
-    public float acceleration, deacceleration, maxSpeed;
+    
 
     private void Awake()
     {
@@ -17,13 +17,16 @@ public class MoveState : State
     protected override void EnterState()
     {
         agent.animationController.PlayAnimation(AnimationType.run);
-        movementData.ResetMovement(); // just for be cautious about precise movement calculation
+        //movementData.ResetMovement(); // just for be cautious about precise movement calculation
     }
 
     public override void UpdateState()
     {
+        base.UpdateState();
+
         CalculateVelocity();
-        
+        SetPlayerVelocity(); // finally, set the player rb velocity
+
         if (Mathf.Abs(agent.rb.velocity.x) < 0.01f)
         {
             agent.ChangeState(IdleState);
@@ -31,7 +34,7 @@ public class MoveState : State
     }
 
 
-    private void CalculateVelocity()
+    protected void CalculateVelocity()
     {
         movementData.movementVector = agent.agentInput.MovementVector; // setting the movement input vector to movement data
 
@@ -40,12 +43,9 @@ public class MoveState : State
 
         movementData.currentVelocity =
             new Vector2(movementData.horizontalMovementDirection * movementData.currentSpeed, agent.rb.velocity.y);
-
-        SetPlayerVelocity(); // finally, set the player rb velocity
-
     }
 
-    private void CalculateHorizontalDirection(MovementData movementData) // calculates the direction of the player
+    protected void CalculateHorizontalDirection(MovementData movementData) // calculates the direction of the player
     {
         if (movementData.movementVector.x > 0)
         {
@@ -57,23 +57,24 @@ public class MoveState : State
         }
     }
 
-    private void CalculateSpeed(MovementData movementData) // instead of simple speed value, we calculated the speed with acc and deacc values
+    protected void CalculateSpeed(MovementData movementData) // instead of simple speed value, we calculated the speed with acc and deacc values
     {
+
         if(Mathf.Abs(movementData.movementVector.x) > 0)
         {
-            movementData.currentSpeed += acceleration * Time.deltaTime;
+            movementData.currentSpeed += agent.agentData.acceleration * Time.deltaTime;
         }
         else
         {
-            movementData.currentSpeed -= deacceleration * Time.deltaTime;
+            movementData.currentSpeed -= agent.agentData.deacceleration * Time.deltaTime;
         }
 
         // make sure that speed do not exceed the max and min limits as we are increasing and decreasing it in the calculation
-        movementData.currentSpeed = Mathf.Clamp(movementData.currentSpeed, 0, maxSpeed); 
+        movementData.currentSpeed = Mathf.Clamp(movementData.currentSpeed, 0, agent.agentData.maxSpeed); 
 
     }
 
-    private void SetPlayerVelocity() // simply sets the player's velocity to movementdata velocity that we have calculated
+    protected void SetPlayerVelocity() // simply sets the player's velocity to movementdata velocity that we have calculated
     {
         agent.rb.velocity = movementData.currentVelocity;
     }

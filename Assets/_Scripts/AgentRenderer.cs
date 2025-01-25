@@ -8,15 +8,9 @@ public class AgentRenderer : MonoBehaviour
 
     public void FlipController(Vector2 input)
     {
-        if(input.x < 0)
-        {
-            transform.parent.localScale = new Vector3(-1 * Mathf.Abs(transform.parent.localScale.x),
-                transform.parent.localScale.y, transform.parent.localScale.z);
-        }
-        else if(input.x > 0)
-        {
-            transform.parent.localScale = new Vector3(Mathf.Abs(transform.parent.localScale.x),
-                transform.parent.localScale.y, transform.parent.localScale.z);
-        }
+        if (Mathf.Abs(input.x) < Mathf.Epsilon) 
+            return;
+
+        transform.parent.localScale = new Vector2(Mathf.Sign(input.x) * Mathf.Abs(transform.localScale.x), 1f);
     }
 }

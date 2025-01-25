@@ -32,19 +32,17 @@ public class GroundDetector : MonoBehaviour
 
 
 
-    public void CheckIsGrounded()
+    public bool CheckIsGrounded()
     {
         RaycastHit2D rayCastHit = Physics2D.BoxCast(groundCollider.bounds.center + new Vector3(boxCastXOffset, boxCastYOffset, 0),
             new Vector3(boxCastWidth, boxCastHeight, 0), 0, Vector2.down, 0, groundLayer);
 
         if (rayCastHit)
         {
-            isGrounded = true;
+            return true;
         }
-        else
-        {
-            isGrounded = false;
-        }
+
+        return false;
     }
 
 

@@ -11,6 +11,7 @@ public class IdleState : State
     protected override void EnterState()
     {
         agent.animationController.PlayAnimation(AnimationType.idle);
+        agent.rb.velocity = Vector2.zero;
     }
 
     protected override void HandleMovement(Vector2 input)

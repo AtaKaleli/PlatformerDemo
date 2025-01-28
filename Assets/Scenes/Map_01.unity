@@ -165,7 +165,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108427148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.39, y: -1.36, z: 0}
+  m_LocalPosition: {x: 55.5, y: -1.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2673,7 +2673,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531381373}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.308446, y: -2.7430785, z: -9.982999}
+  m_LocalPosition: {x: 53.581554, y: -2.7430785, z: -9.982999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3013,7 +3013,7 @@ GameObject:
   - component: {fileID: 846189042}
   - component: {fileID: 846189041}
   - component: {fileID: 846189040}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Climbing Stuff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3402,7 +3402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104138378}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.0555553, y: -1.4999999, z: -9.982999}
+  m_LocalPosition: {x: 53.58567, y: -1.7251289, z: -9.982999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9724,9 +9724,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1458401756}
   - component: {fileID: 1458401757}
+  - component: {fileID: 1458401759}
   - component: {fileID: 1458401758}
   m_Layer: 15
-  m_Name: GroundCollider
+  m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9772,10 +9773,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1458401755}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4651b6168d94b074f9585c6bb8d69f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &1458401759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458401755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53de2773b29d0e34c91c0e3d70d7398d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentGroundCollider: {fileID: 0}
+  agentGroundCollider: {fileID: 1458401757}
   groundLayer:
     serializedVersion: 2
     m_Bits: 2112
@@ -9984,7 +10000,7 @@ MonoBehaviour:
   agentInput: {fileID: 0}
   animationController: {fileID: 0}
   agentRenderer: {fileID: 0}
-  groundDetector: {fileID: 1458401758}
+  groundDetector: {fileID: 0}
   IdleState: {fileID: 1675347108}
 --- !u!114 &1666163917
 MonoBehaviour:

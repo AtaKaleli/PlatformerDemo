@@ -8,6 +8,7 @@ public class JumpState : MoveState
 
     private bool jumpPressed;
 
+    public State ClimbState;
 
 
     protected override void EnterState()
@@ -35,10 +36,13 @@ public class JumpState : MoveState
         SetPlayerVelocity();
 
         ControlJumpHeight();
-
         if (agent.rb.velocity.y <= 0)
         {
             agent.ChangeState(FallState);
+        }
+        else if (agent.climbDetector.CanClimb && Mathf.Abs(agent.agentInput.MovementVector.y) > 0)
+        {
+            agent.ChangeState(ClimbState);
         }
     }
 

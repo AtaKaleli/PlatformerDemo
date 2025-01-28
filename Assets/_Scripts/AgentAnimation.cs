@@ -27,6 +27,11 @@ public class AgentAnimation : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    private void Play(string name)
+    {
+        anim.Play(name, -1, 0f);
+    }
+
     public void PlayAnimation(AnimationType animationType)
     {
         switch (animationType)
@@ -60,9 +65,14 @@ public class AgentAnimation : MonoBehaviour
     }
 
 
-    private void Play(string name)
+    public void StartAnimation()
     {
-        anim.Play(name, -1, 0f);
+        anim.enabled = true;
+    }
+
+    public void StopAnimation()
+    {
+        anim.enabled = false;
     }
 
 }

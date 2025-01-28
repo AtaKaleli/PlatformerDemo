@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FallState : MoveState
 {
-
+    public State ClimbState;
 
     protected override void EnterState()
     {
@@ -18,6 +18,10 @@ public class FallState : MoveState
         if (agent.groundDetector.CheckIsGrounded())
         {
             agent.ChangeState(IdleState);
+        }
+        else if (agent.climbDetector.CanClimb && Mathf.Abs(agent.agentInput.MovementVector.y) > 0)
+        {
+            agent.ChangeState(ClimbState);
         }
     }
 

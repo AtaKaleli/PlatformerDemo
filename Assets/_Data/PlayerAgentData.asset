@@ -17,3 +17,5 @@ MonoBehaviour:
   maxSpeed: 6
   jumpForce: 12
   gravityModifier: 2
+  climbHorizontalSpeed: 2
+  climbVerticalSpeed: 5

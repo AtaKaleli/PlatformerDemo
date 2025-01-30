@@ -5,31 +5,31 @@ using UnityEngine;
 public class PlayerUI : MonoBehaviour
 {
     private HealthUI healthUI;
-    private PointsUI pointsUI;
+    private PointUI pointUI;
 
 
 
     private void Awake()
     {
         healthUI = GetComponentInChildren<HealthUI>();
-        pointsUI = GetComponentInChildren<PointsUI>();
+        pointUI = GetComponentInChildren<PointUI>();
     }
 
-    public void InitializeMaxHealth(int maxHealth)
+
+
+    public void InitializeHealth()
     {
-        healthUI.InitializeHealth(maxHealth);
+        healthUI.Initialize();
     }
 
-    public void SetCurrentHealth(int currentHealth)
+    public void SetHealth(int currentHealth)
     {
-        healthUI.SetHealth(currentHealth);
+        healthUI.SetHealths(currentHealth);
     }
 
-    public void SetCurrentPoints(int currentPoints)
+    public void SetPoint(int currentPoint)
     {
-        pointsUI.SetPoint(currentPoints);
+        pointUI.SetPoint(currentPoint);
     }
-
-
 
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Agent : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class Agent : MonoBehaviour
     public State IdleState;
     private State currentState = null;
 
+   
+    
 
 
     private void Awake()

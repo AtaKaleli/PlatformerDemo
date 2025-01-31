@@ -19,8 +19,8 @@ public class Agent : MonoBehaviour
     public State IdleState;
     private State currentState = null;
 
-   
-    
+
+    public UnityEvent OnRespawnRequired;
 
 
     private void Awake()
@@ -80,5 +80,9 @@ public class Agent : MonoBehaviour
         }
     }
 
+    public void AgentDied()
+    {
+        OnRespawnRequired?.Invoke();
+    }
    
 }

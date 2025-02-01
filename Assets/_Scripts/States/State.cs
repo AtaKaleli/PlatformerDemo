@@ -10,7 +10,7 @@ public abstract class State : MonoBehaviour
 
     [SerializeField] protected State JumpState, FallState;
 
-    //public UnityEvent OnEnter, OnExit;
+    public UnityEvent OnEnter,OnExit; // those are used for only one time happened animations, like jump and fall
 
     public void InitializeState(Agent agent)
     {
@@ -22,7 +22,7 @@ public abstract class State : MonoBehaviour
         this.agent.agentInput.OnMovement += HandleMovement;
         this.agent.agentInput.OnJumpPressed += HandleJumpPressed;
         this.agent.agentInput.OnJumpReleased += HandleJumpReleased;
-        //OnEnter?.Invoke();
+        OnEnter?.Invoke();
         EnterState();
     }
 
@@ -31,7 +31,7 @@ public abstract class State : MonoBehaviour
         this.agent.agentInput.OnMovement -= HandleMovement;
         this.agent.agentInput.OnJumpPressed -= HandleJumpPressed;
         this.agent.agentInput.OnJumpReleased -= HandleJumpReleased;
-        //OnExit?.Invoke();
+        OnExit?.Invoke();
         ExitState();
     }
 

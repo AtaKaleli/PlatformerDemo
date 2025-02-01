@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ClimbState : State
 {
@@ -8,9 +9,12 @@ public class ClimbState : State
 
     public State IdleState;
 
+    public UnityEvent OnClimb;
+
     protected override void EnterState()
     {
         agent.animationController.PlayAnimation(AnimationType.climb);
+        agent.animationController.OnAnimationAction.AddListener(() => OnClimb.Invoke());
         agent.animationController.StopAnimation();
         previousGravityScale = agent.rb.gravityScale;
         agent.rb.gravityScale = 0;
@@ -21,6 +25,7 @@ public class ClimbState : State
     {
         agent.rb.gravityScale = previousGravityScale;
         agent.animationController.StartAnimation();
+        agent.animationController.ResetEventListeners();
     }
 
     protected override void HandleJumpPressed()
@@ -52,4 +57,6 @@ public class ClimbState : State
             agent.rb.velocity = Vector2.zero; // stop player from moving if not moving on the ladder
         }
     }
+
+   
 }

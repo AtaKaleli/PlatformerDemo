@@ -2,18 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class JumpState : MoveState
 {
 
     private bool jumpPressed;
 
+    
     public State ClimbState;
 
 
     protected override void EnterState()
     {
         agent.animationController.PlayAnimation(AnimationType.jump);
+        
         movementData.currentVelocity = new Vector2(agent.rb.velocity.x, agent.agentData.jumpForce);
        
         SetPlayerVelocity();
@@ -54,6 +57,6 @@ public class JumpState : MoveState
             movementData.currentVelocity.y += agent.agentData.gravityModifier * Physics2D.gravity.y * Time.deltaTime;
             SetPlayerVelocity();
         }
-
     }
+
 }

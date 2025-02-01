@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MoveState : State
 {
@@ -7,7 +8,10 @@ public class MoveState : State
     [Header("State Information")]
     public State IdleState;
 
-    
+
+    public UnityEvent OnMove;
+
+
 
     private void Awake()
     {
@@ -17,7 +21,8 @@ public class MoveState : State
     protected override void EnterState()
     {
         agent.animationController.PlayAnimation(AnimationType.run);
-        //movementData.ResetMovement(); // just for be cautious about precise movement calculation
+        agent.animationController.OnAnimationAction.AddListener(() => OnMove.Invoke());
+
     }
 
     public override void UpdateState()
@@ -78,4 +83,10 @@ public class MoveState : State
     {
         agent.rb.velocity = movementData.currentVelocity;
     }
+
+    protected override void ExitState()
+    {
+        agent.animationController.ResetEventListeners();
+    }
+
 }

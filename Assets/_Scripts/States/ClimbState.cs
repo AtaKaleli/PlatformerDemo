@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class ClimbState : State
     public State IdleState;
 
     public UnityEvent OnClimb;
+    
 
     protected override void EnterState()
     {
@@ -21,11 +23,17 @@ public class ClimbState : State
         agent.rb.velocity = Vector2.zero; // stop player from moving if entering on the ladder
     }
 
+    public void HandleDead()
+    {
+        print("dead");
+    }
+
     protected override void ExitState()
     {
         agent.rb.gravityScale = previousGravityScale;
         agent.animationController.StartAnimation();
         agent.animationController.ResetEventListeners();
+   
     }
 
     protected override void HandleJumpPressed()

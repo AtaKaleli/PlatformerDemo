@@ -2,13 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponData : MonoBehaviour
+namespace WeaponSystem
 {
-    public Sprite weaponSprite;
-
-
-    public bool CanBeUsed(bool isGrounded)
+    //hold data of weapons
+    public class WeaponData : MonoBehaviour
     {
-        return isGrounded;
+        
+
+        public Sprite weaponSprite;
+
+
+        public bool CanBeUsed(bool isGrounded)
+        {
+            throw new System.Exception("");
+        }
+
+
+
+
+
     }
 }

@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class Agent : MonoBehaviour
 {
     public AgentDataSO agentData;
@@ -15,6 +16,8 @@ public class Agent : MonoBehaviour
     public AgentRenderer agentRenderer;
     public GroundDetector groundDetector;
     public ClimbDetector climbDetector;
+
+    
 
     public State IdleState;
     private State currentState = null;
@@ -31,6 +34,7 @@ public class Agent : MonoBehaviour
         agentRenderer = GetComponentInChildren<AgentRenderer>();
         groundDetector = GetComponentInChildren<GroundDetector>();
         climbDetector = GetComponentInChildren<ClimbDetector>();
+        
         
         AssignAgentToStates();
 

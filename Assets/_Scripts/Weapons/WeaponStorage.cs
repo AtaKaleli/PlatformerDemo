@@ -2,39 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponStorage : MonoBehaviour
+namespace WeaponSystem
 {
-    private List<WeaponData> weaponData;
-
-    private WeaponData currentWeapon;
-    private WeaponData nextWeapon;
-
-    public int WeaponCount { get; set; }
-
-
-    private void Awake()
+    //this will  be a helper script, it will help us organize our weapons instead of keeping the weapon data inside our manager
+    public class WeaponStorage
     {
-        weaponData = new List<WeaponData>();
-    }
+
+        private List<WeaponData> weaponDataList;
+        public int WeaponCount { get => weaponDataList.Count; }
 
 
-    public WeaponData GetCurrentWeapon()
-    {
-        return currentWeapon;
-    }
 
-    public WeaponData SwapWeapon()
-    {
-        return nextWeapon;
-    }
+        public WeaponData GetCurrentWeapon()
+        {
+            throw new System.Exception("");
+        }
 
-    public void AddWeaponData(WeaponData newWeapon)
-    {
-        weaponData.Add(newWeapon);
-    }
+        public WeaponData SwapWeapon()
+        {
+            throw new System.Exception("");
+        }
 
-    public List<string> GetPlayerWeaponNames()
-    {
-        throw new System.Exception("sdf");
+        public void AddWeapon(WeaponData newWeapon)
+        {
+            throw new System.Exception("");
+        }
+
+        public List<string> GetPlayerWeaponNames()
+        {
+            throw new System.Exception("");
+        }
+
     }
 }

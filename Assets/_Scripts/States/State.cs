@@ -22,6 +22,7 @@ public abstract class State : MonoBehaviour
         this.agent.agentInput.OnMovement += HandleMovement;
         this.agent.agentInput.OnJumpPressed += HandleJumpPressed;
         this.agent.agentInput.OnJumpReleased += HandleJumpReleased;
+        this.agent.agentInput.OnAttack += HandleAttack;
         OnEnter?.Invoke();
         EnterState();
     }
@@ -31,6 +32,7 @@ public abstract class State : MonoBehaviour
         this.agent.agentInput.OnMovement -= HandleMovement;
         this.agent.agentInput.OnJumpPressed -= HandleJumpPressed;
         this.agent.agentInput.OnJumpReleased -= HandleJumpReleased;
+        this.agent.agentInput.OnAttack -= HandleAttack;
         OnExit?.Invoke();
         ExitState();
     }
@@ -89,5 +91,11 @@ public abstract class State : MonoBehaviour
     protected virtual void HandleMovement(Vector2 vector)
     {
     }
+
+    protected virtual void HandleAttack()
+    {
+        print("player attacked");
+    }
+
     #endregion
 }

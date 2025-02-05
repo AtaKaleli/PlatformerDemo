@@ -3,41 +3,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Rendering.Universal;
 
 namespace WeaponSystem
 {
+    //to help our attack state to get the reference of our weapon
     public class AgentWeaponManager : MonoBehaviour
     {
-
-
         
 
-        private WeaponStorage weaponStorage;
-        private SpriteRenderer sr;
+        private SpriteRenderer sr; 
+        private WeaponStorage weaponStorage; // not a monobehaviour, just contains list of our weapon data referances
 
-        public UnityEvent<Sprite> OnWeaponSwap;
-        public UnityEvent OnMultipleWeapons; // tip on how to swap weapons
+        public UnityEvent<Sprite> OnWeaponSwap; 
+        public UnityEvent OnMultipleWeapons;
         public UnityEvent OnWeaponPickUp;
+
 
 
         private void Awake()
         {
             weaponStorage = new WeaponStorage();
             sr = GetComponent<SpriteRenderer>();
-            ToggleWeaponVisibility(false);
+            //ToggleWeaponVisibility(false);
         }
 
+        /*
         private void ToggleWeaponVisibility(bool value)
         {
             if (value)
             {
                 SwapWeaponSprite(GetCurrentWeapon().weaponSprite);
             }
+
             sr.enabled = value;
         }
+        */
 
-       
+        public void SwapWeapon()
+        {
+            if (weaponStorage.WeaponCount <= 0)
+                return;
+
+            SwapWeaponSprite(weaponStorage.SwapWeapon().weaponSprite);
+        }
+
         private void SwapWeaponSprite(Sprite weaponSprite)
         {
             sr.sprite = weaponSprite;
@@ -49,45 +58,35 @@ namespace WeaponSystem
             return weaponStorage.GetCurrentWeapon();
         }
 
-        public void SwapWeapon()
-        {
-            if(weaponStorage.WeaponCount <= 0)
-            {
-                return;
-            }
-            SwapWeaponSprite(weaponStorage.SwapWeapon().weaponSprite);
-
-        }
-
-
         public void PickUpWeapon(WeaponData newWeapon)
         {
-            AddWeaponData(newWeapon);
-            OnWeaponPickUp?.Invoke(); // weapon pick up audio feedback
+            AddWeapon(newWeapon);
+            OnWeaponPickUp?.Invoke();
         }
 
-        public void AddWeaponData(WeaponData newWeapon)
+        public void AddWeapon(WeaponData newWeapon)
         {
-            weaponStorage.AddWeaponData(newWeapon);
+            weaponStorage.AddWeapon(newWeapon);
 
-            if(weaponStorage.WeaponCount > 1) // having more than one weapon
+            if(weaponStorage.WeaponCount > 1) // if we have more that one weapon
             {
                 OnMultipleWeapons?.Invoke();
             }
+            //SwapWeaponSprite(newWeapon.weaponSprite);
+            
+            SwapWeapon(); // when add new weapon, immidiately swap the current weapon with the newest one.
 
-            SwapWeaponSprite(newWeapon.weaponSprite);
         }
 
-        public bool CanUseWeapon(bool isGrounded) // melee attack cant be performed when we are on air
+        public bool CanIUseWeapon(bool isGrounded)
         {
-            if(weaponStorage.WeaponCount <= 0)
-            {
+            if (weaponStorage.WeaponCount <= 0) // this means player does not have any weapon
                 return false;
-            }
+
             return weaponStorage.GetCurrentWeapon().CanBeUsed(isGrounded);
         }
 
-        public List<string> GetPlayerWeaponNames() // for save system
+        public List<string> GetPlayerWeaponNames()
         {
             return weaponStorage.GetPlayerWeaponNames();
         }
@@ -101,12 +100,5 @@ namespace WeaponSystem
 
 
 
-
-
-
-
-
-
     }
-
 }

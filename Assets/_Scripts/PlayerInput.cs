@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -10,17 +7,18 @@ public class PlayerInput : MonoBehaviour
 
     public event Action<Vector2> OnMovement;
 
-    public event Action OnJumpPressed, OnJumpReleased;
+    public event Action OnJumpPressed, OnJumpReleased, OnAttack;
 
-    public KeyCode jumpKey;
+    public KeyCode jumpKey, attackKey;
 
 
     private void Update()
     {
-        if(Time.timeScale > 0)
+        if (Time.timeScale > 0)
         {
             GetMovementInput();
             GetJumpInput();
+            GetAttackInput();
         }
     }
 
@@ -47,6 +45,13 @@ public class PlayerInput : MonoBehaviour
         return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
+    private void GetAttackInput()
+    {
+        if (Input.GetKeyDown(attackKey))
+        {
+            OnAttack?.Invoke();
+        }
+    }
 
 
 }

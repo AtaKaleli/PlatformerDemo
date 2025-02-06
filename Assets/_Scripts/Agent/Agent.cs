@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using WeaponSystem;
 
 
 public class Agent : MonoBehaviour
@@ -16,7 +17,8 @@ public class Agent : MonoBehaviour
     public AgentRenderer agentRenderer;
     public GroundDetector groundDetector;
     public ClimbDetector climbDetector;
-
+    
+    [HideInInspector] public AgentWeaponManager agentWeaponManager;
     
 
     public State IdleState;
@@ -34,7 +36,7 @@ public class Agent : MonoBehaviour
         agentRenderer = GetComponentInChildren<AgentRenderer>();
         groundDetector = GetComponentInChildren<GroundDetector>();
         climbDetector = GetComponentInChildren<ClimbDetector>();
-        
+        agentWeaponManager = GetComponentInChildren<AgentWeaponManager>();
         
         AssignAgentToStates();
 

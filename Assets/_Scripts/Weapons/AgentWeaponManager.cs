@@ -24,10 +24,10 @@ namespace WeaponSystem
         {
             weaponStorage = new WeaponStorage();
             sr = GetComponent<SpriteRenderer>();
-            //ToggleWeaponVisibility(false);
+            ToggleWeaponVisibility(false);
         }
 
-        /*
+        
         private void ToggleWeaponVisibility(bool value)
         {
             if (value)
@@ -37,7 +37,7 @@ namespace WeaponSystem
 
             sr.enabled = value;
         }
-        */
+        
 
         public void SwapWeapon()
         {
@@ -66,15 +66,17 @@ namespace WeaponSystem
 
         public void AddWeapon(WeaponData newWeapon)
         {
-            weaponStorage.AddWeapon(newWeapon);
+            if (!weaponStorage.AddWeapon(newWeapon))
+                return;
 
             if(weaponStorage.WeaponCount > 1) // if we have more that one weapon
             {
                 OnMultipleWeapons?.Invoke();
             }
-            //SwapWeaponSprite(newWeapon.weaponSprite);
             
-            SwapWeapon(); // when add new weapon, immidiately swap the current weapon with the newest one.
+            SwapWeaponSprite(newWeapon.weaponSprite);
+            
+            
 
         }
 

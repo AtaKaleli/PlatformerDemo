@@ -94,7 +94,12 @@ public abstract class State : MonoBehaviour
 
     protected virtual void HandleAttack()
     {
-        print("player attacked");
+        if (agent.agentWeapon.CanIUseWeapon(agent.groundDetector.CheckIsGrounded()))
+        {
+            agent.agentWeapon.GetCurrentWeapon().PerformAttack(agent, 0, Vector3.right);
+        }
+
+        
     }
 
     #endregion

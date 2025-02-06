@@ -18,7 +18,7 @@ namespace WeaponSystem
         public UnityEvent OnMultipleWeapons;
         public UnityEvent OnWeaponPickUp;
 
-
+        [SerializeField] private WeaponData club;
 
         private void Awake()
         {
@@ -27,7 +27,11 @@ namespace WeaponSystem
             ToggleWeaponVisibility(false);
         }
 
-        
+        /*private void Start()
+        {
+            weaponStorage.AddWeapon(club); 
+        }*/
+
         private void ToggleWeaponVisibility(bool value)
         {
             if (value)

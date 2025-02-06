@@ -1005,6 +1005,7 @@ MonoBehaviour:
   OnWeaponPickUp:
     m_PersistentCalls:
       m_Calls: []
+  club: {fileID: 11400000, guid: 29125fabb279a804f803d989efea4618, type: 2}
 --- !u!212 &201876707
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11215,7 +11216,7 @@ MonoBehaviour:
   agentRenderer: {fileID: 0}
   groundDetector: {fileID: 0}
   climbDetector: {fileID: 0}
-  agentWeaponManager: {fileID: 0}
+  agentWeapon: {fileID: 0}
   IdleState: {fileID: 1675347108}
   OnRespawnRequired:
     m_PersistentCalls:
@@ -11278,7 +11279,6 @@ GameObject:
   - component: {fileID: 1675347111}
   - component: {fileID: 1675347110}
   - component: {fileID: 1675347112}
-  - component: {fileID: 1675347113}
   m_Layer: 0
   m_Name: States
   m_TagString: Untagged
@@ -11498,26 +11498,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1675347113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675347106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e85c4e90e5451ea4fa9d25f0bfa0e1e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  JumpState: {fileID: 0}
-  FallState: {fileID: 0}
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1687963892
 GameObject:
   m_ObjectHideFlags: 0

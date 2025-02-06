@@ -18,7 +18,7 @@ public class Agent : MonoBehaviour
     public GroundDetector groundDetector;
     public ClimbDetector climbDetector;
     
-    [HideInInspector] public AgentWeaponManager agentWeaponManager;
+    [HideInInspector] public AgentWeaponManager agentWeapon;
     
 
     public State IdleState;
@@ -36,7 +36,7 @@ public class Agent : MonoBehaviour
         agentRenderer = GetComponentInChildren<AgentRenderer>();
         groundDetector = GetComponentInChildren<GroundDetector>();
         climbDetector = GetComponentInChildren<ClimbDetector>();
-        agentWeaponManager = GetComponentInChildren<AgentWeaponManager>();
+        agentWeapon = GetComponentInChildren<AgentWeaponManager>();
         
         AssignAgentToStates();
 

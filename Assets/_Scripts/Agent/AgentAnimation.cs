@@ -24,7 +24,7 @@ public class AgentAnimation : MonoBehaviour
     private Animator anim;
 
     public UnityEvent OnAnimationAction;
-    public UnityEvent OnAnimationEnd;
+    //public UnityEvent OnAnimationEnd;
 
 
 
@@ -50,6 +50,7 @@ public class AgentAnimation : MonoBehaviour
                 Play("Idle");
                 break;
             case AnimationType.attack:
+                Play("Attack");
                 break;
             case AnimationType.run:
                 Play("Run");
@@ -84,7 +85,7 @@ public class AgentAnimation : MonoBehaviour
     public void ResetEventListeners() // reset all listeners not to mix all sounds in the source
     {
         OnAnimationAction.RemoveAllListeners();
-        OnAnimationEnd.RemoveAllListeners();
+        //OnAnimationEnd.RemoveAllListeners();
     }
 
     public void InvokeAnimationAction()

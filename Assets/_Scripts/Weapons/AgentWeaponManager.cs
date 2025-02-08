@@ -27,12 +27,12 @@ namespace WeaponSystem
             ToggleWeaponVisibility(false);
         }
 
-        /*private void Start()
+        private void Start()
         {
             weaponStorage.AddWeapon(club); 
-        }*/
+        }
 
-        private void ToggleWeaponVisibility(bool value)
+        public void ToggleWeaponVisibility(bool value)
         {
             if (value)
             {

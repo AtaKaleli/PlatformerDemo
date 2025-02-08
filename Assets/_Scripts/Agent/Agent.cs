@@ -46,7 +46,6 @@ public class Agent : MonoBehaviour
 
     private void Start()
     {
-        agentInput.OnMovement += agentRenderer.FlipController;
         ChangeState(IdleState);
     }
 
@@ -90,5 +89,7 @@ public class Agent : MonoBehaviour
     {
         OnRespawnRequired?.Invoke();
     }
+
+   
    
 }

@@ -8,7 +8,7 @@ public abstract class State : MonoBehaviour
 {
     protected Agent agent;
 
-    [SerializeField] protected State JumpState, FallState;
+    [SerializeField] protected State JumpState, FallState, AttackState;
 
     public UnityEvent OnEnter,OnExit; // those are used for only one time happened animations, like jump and fall
 
@@ -19,7 +19,7 @@ public abstract class State : MonoBehaviour
 
     public void Enter()
     {
-        this.agent.agentInput.OnMovement += HandleMovement;
+        this.agent.agentInput.OnMovement += HandleAgentFlip;
         this.agent.agentInput.OnJumpPressed += HandleJumpPressed;
         this.agent.agentInput.OnJumpReleased += HandleJumpReleased;
         this.agent.agentInput.OnAttack += HandleAttack;
@@ -29,7 +29,7 @@ public abstract class State : MonoBehaviour
 
     public void Exit()
     {
-        this.agent.agentInput.OnMovement -= HandleMovement;
+        this.agent.agentInput.OnMovement -= HandleAgentFlip;
         this.agent.agentInput.OnJumpPressed -= HandleJumpPressed;
         this.agent.agentInput.OnJumpReleased -= HandleJumpReleased;
         this.agent.agentInput.OnAttack -= HandleAttack;
@@ -54,6 +54,14 @@ public abstract class State : MonoBehaviour
         if (!agent.groundDetector.CheckIsGrounded())
         {
             agent.ChangeState(FallState);
+        }
+    }
+    
+    private void TestAttackTransition()
+    {
+        if (agent.agentWeapon.CanIUseWeapon(agent.groundDetector.CheckIsGrounded()))
+        {
+            agent.ChangeState(AttackState);
         }
     }
 
@@ -88,18 +96,13 @@ public abstract class State : MonoBehaviour
         }
     }
 
-    protected virtual void HandleMovement(Vector2 vector)
+    protected virtual void HandleAgentFlip(Vector2 vector)
     {
     }
 
     protected virtual void HandleAttack()
     {
-        if (agent.agentWeapon.CanIUseWeapon(agent.groundDetector.CheckIsGrounded()))
-        {
-            agent.agentWeapon.GetCurrentWeapon().PerformAttack(agent, 0, Vector3.right);
-        }
-
-        
+        TestAttackTransition();
     }
 
     #endregion

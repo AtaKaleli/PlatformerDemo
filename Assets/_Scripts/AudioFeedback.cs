@@ -13,6 +13,7 @@ public class AudioFeedback : MonoBehaviour
 
     public void PlayClip()
     {
+
         if (clip == null)
             return;
 
@@ -20,16 +21,12 @@ public class AudioFeedback : MonoBehaviour
         targetAudioSource.PlayOneShot(clip);
     }
 
-    public void PlaySpecificClip(AudioClip clipToPlay = null)
+    public void PlaySpecificClip(AudioClip clipToPlay)
     {
         if (clipToPlay == null)
-            clipToPlay = clip;
-
-        if (clip == null)
             return;
 
         targetAudioSource.volume = this.volume;
         targetAudioSource.PlayOneShot(clipToPlay);
-
     }
 }

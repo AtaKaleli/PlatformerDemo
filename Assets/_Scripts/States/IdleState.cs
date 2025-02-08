@@ -15,7 +15,7 @@ public class IdleState : State
         }
     }
 
-    protected override void HandleMovement(Vector2 input)
+    protected override void HandleAgentFlip(Vector2 input)
     {
         if (agent.climbDetector.CanClimb && Mathf.Abs(input.y) > 0) // if we are in the ladder and pressed the up key
         {

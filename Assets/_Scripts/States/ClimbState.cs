@@ -66,5 +66,9 @@ public class ClimbState : State
         }
     }
 
-   
+    protected override void HandleAttack()
+    {
+        //prevent attackking while climbing
+    }
+
 }

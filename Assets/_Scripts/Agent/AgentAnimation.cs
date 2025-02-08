@@ -50,6 +50,7 @@ public class AgentAnimation : MonoBehaviour
                 Play("Idle");
                 break;
             case AnimationType.attack:
+                Play("Attack");
                 break;
             case AnimationType.run:
                 Play("Run");
@@ -91,12 +92,12 @@ public class AgentAnimation : MonoBehaviour
     {
         OnAnimationAction?.Invoke();
     }
-    /*
+    
     public void InvokeAnimationEnd()
     {
         OnAnimationEnd?.Invoke();
     }
-    */
+    
 
 }
 

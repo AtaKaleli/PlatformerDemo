@@ -65,5 +65,6 @@ public class GroundDetector : MonoBehaviour
         Gizmos.DrawWireCube(agentGroundCollider.bounds.center + new Vector3(boxCastXOffset, boxCastYOffset, 0), new Vector3(boxCastWidth, boxCastHeight, 0));
     }
 
+    
 
 }

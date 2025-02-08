@@ -20,12 +20,14 @@ namespace WeaponSystem
 
         public abstract bool CanBeUsed(bool isGrounded);
         public abstract void PerformAttack(Agent agent, LayerMask hittableMask, Vector3 direction);
-        public abstract void DrawWeaponGizmo(Vector3 origin, Vector3 direction);
-        
+
+
 
         public bool Equals(WeaponData other)
         {
             return weaponName == other.weaponName;
         }
+
+        
     }
 }

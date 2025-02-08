@@ -22,13 +22,13 @@ public class MoveState : State
     {
         agent.animationController.PlayAnimation(AnimationType.run);
         agent.animationController.OnAnimationAction.AddListener(() => OnMove.Invoke());
-
+        
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
-
+        
         CalculateVelocity();
         SetPlayerVelocity(); // finally, set the player rb velocity
 
@@ -36,6 +36,11 @@ public class MoveState : State
         {
             agent.ChangeState(IdleState);
         }
+    }
+
+    protected override void HandleAgentFlip(Vector2 input)
+    {
+        agent.agentRenderer.FlipController(input);
     }
 
 

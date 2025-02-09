@@ -8,7 +8,6 @@ public abstract class State : MonoBehaviour
 {
     protected Agent agent;
 
-    [SerializeField] protected State JumpState, FallState, AttackState;
 
     public UnityEvent OnEnter,OnExit; // those are used for only one time happened animations, like jump and fall
 
@@ -53,7 +52,7 @@ public abstract class State : MonoBehaviour
     {
         if (!agent.groundDetector.CheckIsGrounded())
         {
-            agent.ChangeState(FallState);
+            agent.ChangeState(agent.stateFactory.GetState(StateType.Fall));
         }
     }
     
@@ -61,7 +60,7 @@ public abstract class State : MonoBehaviour
     {
         if (agent.agentWeapon.CanIUseWeapon(agent.groundDetector.CheckIsGrounded()))
         {
-            agent.ChangeState(AttackState);
+            agent.ChangeState(agent.stateFactory.GetState(StateType.Attack));
         }
     }
 
@@ -92,7 +91,7 @@ public abstract class State : MonoBehaviour
     {
         if (agent.groundDetector.CheckIsGrounded())
         {
-            agent.ChangeState(JumpState);
+            agent.ChangeState(agent.stateFactory.GetState(StateType.Jump));
         }
     }
 

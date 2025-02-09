@@ -5,8 +5,7 @@ public class MoveState : State
 {
     protected MovementData movementData;
 
-    [Header("State Information")]
-    public State IdleState;
+
 
 
     public UnityEvent OnMove;
@@ -34,7 +33,7 @@ public class MoveState : State
 
         if (Mathf.Abs(agent.rb.velocity.x) < 0.01f)
         {
-            agent.ChangeState(IdleState);
+            agent.ChangeState(agent.stateFactory.GetState(StateType.Idle));
         }
     }
 

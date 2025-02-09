@@ -8,7 +8,7 @@ public class ClimbState : State
 {
     private float previousGravityScale = 2f;
 
-    public State IdleState;
+    
 
     public UnityEvent OnClimb;
     
@@ -38,7 +38,7 @@ public class ClimbState : State
 
     protected override void HandleJumpPressed()
     {
-        agent.ChangeState(JumpState);
+        agent.ChangeState(agent.stateFactory.GetState(StateType.Jump));
     }
 
     public override void UpdateState()
@@ -47,7 +47,7 @@ public class ClimbState : State
 
         if (!agent.climbDetector.CanClimb)
         {
-            agent.ChangeState(IdleState);
+            agent.ChangeState(agent.stateFactory.GetState(StateType.Idle));
         }
     }
 

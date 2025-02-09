@@ -21,11 +21,12 @@ public class Agent : MonoBehaviour
     [HideInInspector] public AgentWeaponManager agentWeapon;
     
 
-    public State IdleState;
+    
     private State currentState = null;
 
+    [HideInInspector] public StateFactory stateFactory;
 
-    public UnityEvent OnRespawnRequired;
+   public UnityEvent OnRespawnRequired;
 
 
     private void Awake()
@@ -37,16 +38,16 @@ public class Agent : MonoBehaviour
         groundDetector = GetComponentInChildren<GroundDetector>();
         climbDetector = GetComponentInChildren<ClimbDetector>();
         agentWeapon = GetComponentInChildren<AgentWeaponManager>();
-        
-        AssignAgentToStates();
+        stateFactory = GetComponentInChildren<StateFactory>();
 
+        stateFactory.InitializeStates(this);
     }
 
     
 
     private void Start()
     {
-        ChangeState(IdleState);
+        ChangeState(stateFactory.GetState(StateType.Idle));
     }
 
     private void Update()
@@ -61,14 +62,6 @@ public class Agent : MonoBehaviour
         currentState.FixedUpdateState();
     }
 
-    private void AssignAgentToStates()
-    {
-        State[] states = GetComponentsInChildren<State>();
-        foreach (var state in states)
-        {
-            state.InitializeState(this);
-        }
-    }
 
     public void ChangeState(State newState)
     {

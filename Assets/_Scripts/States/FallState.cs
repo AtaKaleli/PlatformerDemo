@@ -3,10 +3,7 @@ using UnityEngine.Events;
 
 public class FallState : MoveState
 {
-    public State ClimbState;
-
-
-
+    
     protected override void EnterState()
     {
         agent.animationController.PlayAnimation(AnimationType.fall);
@@ -22,11 +19,11 @@ public class FallState : MoveState
         if (agent.groundDetector.CheckIsGrounded())
         {
 
-            agent.ChangeState(IdleState);
+            agent.ChangeState(agent.stateFactory.GetState(StateType.Idle));
         }
         else if (agent.climbDetector.CanClimb && Mathf.Abs(agent.agentInput.MovementVector.y) > 0)
         {
-            agent.ChangeState(ClimbState);
+            agent.ChangeState(agent.stateFactory.GetState(StateType.Climb));
         }
     }
 

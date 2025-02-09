@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class AttackState : State
 {
-    [SerializeField] protected State IdleState;
+   
     public LayerMask hittableLayerMask;
 
     protected Vector2 direction;
@@ -41,11 +41,11 @@ public class AttackState : State
     {
         if (agent.groundDetector.CheckIsGrounded())
         {
-            agent.ChangeState(IdleState);
+            agent.ChangeState(agent.stateFactory.GetState(StateType.Idle));
         }
         else
         {
-            agent.ChangeState(FallState);
+            agent.ChangeState(agent.stateFactory.GetState(StateType.Fall));
         }
     }
 

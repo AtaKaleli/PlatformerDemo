@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class IdleState : State
 {
-    [Header("State Information")]
-    public State MoveState, ClimbState;
+    
+    
 
     protected override void EnterState()
     {
@@ -19,11 +19,11 @@ public class IdleState : State
     {
         if (agent.climbDetector.CanClimb && Mathf.Abs(input.y) > 0) // if we are in the ladder and pressed the up key
         {
-            agent.ChangeState(ClimbState);
+            agent.ChangeState(agent.stateFactory.GetState(StateType.Climb));
         }
         else if (Mathf.Abs(input.x) > 0.01f)
         {
-            agent.ChangeState(MoveState);
+            agent.ChangeState(agent.stateFactory.GetState(StateType.Move));
         }
     }
 

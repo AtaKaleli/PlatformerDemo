@@ -1,37 +1,47 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour
 {
-    private List<LifeElementUI> healths;
+    private List<LifeElementUI> healthImages;
 
     [SerializeField] private Sprite fullHeart, emptyHeart;
+    [SerializeField] private LifeElementUI healthPrefab;
 
 
-
-    public void Initialize()
+    public void Initialize(int maxHealth)
     {
-        healths = new List<LifeElementUI>();
+        healthImages = new List<LifeElementUI>();
 
-        foreach (Transform life in transform)
+        foreach (Transform child in transform)
         {
-            healths.Add(life.GetComponent<LifeElementUI>());
+            Destroy(child.gameObject);
+        }
+
+        for (int i = 0; i < maxHealth; i++)
+        {
+            var life = Instantiate(healthPrefab);
+            life.transform.SetParent(transform, false);
+            healthImages.Add(life);
         }
     }
 
     public void SetHealths(int currentHealth)
     {
-        for (int i = 0; i < healths.Capacity; i++)
+        print(currentHealth);
+        for (int i = 0; i < healthImages.Count; i++)
         {
             if(i < currentHealth)
             {
-                healths[i].SetSprite(fullHeart);
+                print("full: " + i);
+                healthImages[i].SetSprite(fullHeart);
             }
             else
             {
-                healths[i].SetSprite(emptyHeart);
+                print("empty: " + i);
+                healthImages[i].SetSprite(emptyHeart);
             }
         }
     }

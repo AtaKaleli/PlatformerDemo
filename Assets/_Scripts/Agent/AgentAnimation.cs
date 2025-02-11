@@ -43,8 +43,10 @@ public class AgentAnimation : MonoBehaviour
         switch (animationType)
         {
             case AnimationType.die:
+                Play("Die");
                 break;
             case AnimationType.hit:
+                Play("GetHit");
                 break;
             case AnimationType.idle:
                 Play("Idle");
@@ -63,8 +65,6 @@ public class AgentAnimation : MonoBehaviour
                 break;
             case AnimationType.climb:
                 Play("Climb");
-                break;
-            case AnimationType.land:
                 break;
             default:
                 break;

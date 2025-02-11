@@ -35,12 +35,10 @@ public class HealthUI : MonoBehaviour
         {
             if(i < currentHealth)
             {
-                print("full: " + i);
                 healthImages[i].SetSprite(fullHeart);
             }
             else
             {
-                print("empty: " + i);
                 healthImages[i].SetSprite(emptyHeart);
             }
         }

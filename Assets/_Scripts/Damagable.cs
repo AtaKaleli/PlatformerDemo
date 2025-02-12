@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,26 +14,38 @@ public class Damagable : MonoBehaviour, IHittable
 
     public UnityEvent<int> OnInitializeMaxHealth;
 
+
     public UnityEvent OnGetHit;
     public UnityEvent OnDie;
     public UnityEvent OnAddHealth;
 
+
     
     public int CurrentHealth 
+
     {
         get => currentHealth;
         set
         {
             currentHealth = value;
-            OnHealthValueChange?.Invoke(currentHealth);
+            OnDetectCurrentHealth?.Invoke(currentHealth);
         }
     }
+
+
+
+
+
+
+
 
     public void GetHit(GameObject gameObject, int weaponDamage)
     {
         CurrentHealth -= weaponDamage;
 
+
         if(CurrentHealth <= 0)
+
         {
             OnDie?.Invoke();
         }
@@ -41,6 +54,7 @@ public class Damagable : MonoBehaviour, IHittable
             OnGetHit?.Invoke();
         }
     }
+
 
     public void AddHealth(int val)
     {
@@ -56,4 +70,5 @@ public class Damagable : MonoBehaviour, IHittable
     }
 
    
+
 }

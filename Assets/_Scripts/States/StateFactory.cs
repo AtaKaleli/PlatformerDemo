@@ -1,4 +1,6 @@
+
 using UnityEngine;
+
 
 
 public enum StateType
@@ -23,8 +25,6 @@ public class StateFactory : MonoBehaviour
 
 
 
-
-
     public State GetState(StateType stateType) => stateType switch
     {
         StateType.Idle => Idle,
@@ -38,7 +38,6 @@ public class StateFactory : MonoBehaviour
         _ => throw new System.Exception("State not defined " + stateType.ToString())
     };
 
-
     public void InitializeStates(Agent agent)
     {
         State[] states = GetComponentsInChildren<State>();
@@ -47,9 +46,6 @@ public class StateFactory : MonoBehaviour
             state.InitializeState(agent);
         }
     }
-    
-
-
 
 }
 

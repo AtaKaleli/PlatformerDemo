@@ -3907,6 +3907,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+
 --- !u!1 &874814241
 GameObject:
   m_ObjectHideFlags: 0
@@ -3954,6 +3955,7 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: 2d9784548ba836e43b4c5722046222cb, type: 3}
   targetAudioSource: {fileID: 1687963894}
   volume: 0.437
+
 --- !u!1 &883833988
 GameObject:
   m_ObjectHideFlags: 0
@@ -4270,7 +4272,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullHeart: {fileID: -205270267638800340, guid: 9430e177e80add34b9745425b6a9290a, type: 3}
   emptyHeart: {fileID: -3830260593909529575, guid: 9430e177e80add34b9745425b6a9290a, type: 3}
+
   healthPrefab: {fileID: 8509207846354680700, guid: ab3b85e6cbfeb9647be494d41d7cb852, type: 3}
+
+
 --- !u!1 &1104138378
 GameObject:
   m_ObjectHideFlags: 0
@@ -10638,7 +10643,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8054039660701357205, guid: ceb0c7588dd398640b4333116023f9dc, type: 3}
   m_PrefabInstance: {fileID: 1358105987}
   m_PrefabAsset: {fileID: 0}
+
 --- !u!1 &1382242156
+
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10646,36 +10653,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+
   - component: {fileID: 1382242157}
   - component: {fileID: 1382242158}
   m_Layer: 0
   m_Name: Die Audio Feedback
+
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+
 --- !u!4 &1382242157
+
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   m_GameObject: {fileID: 1382242156}
+
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
+
   m_Children: []
   m_Father: {fileID: 1675347107}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1382242158
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   m_GameObject: {fileID: 1382242156}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -10685,6 +10701,8 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: f25b087c805825847b8e4c620d9bc989, type: 3}
   targetAudioSource: {fileID: 1687963894}
   volume: 0.437
+
+
 --- !u!1001 &1457727087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11157,7 +11175,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+
   - {fileID: 1556542653}
+
   - {fileID: 588842388}
   - {fileID: 1458401756}
   - {fileID: 661666548}
@@ -11258,6 +11278,7 @@ CapsuleCollider2D:
   m_Direction: 0
 --- !u!114 &1666163919
 MonoBehaviour:
+
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11375,9 +11396,11 @@ Transform:
   - {fileID: 166769452}
   - {fileID: 138164763}
   - {fileID: 1128002414}
+
   - {fileID: 874814242}
   - {fileID: 1382242157}
   m_Father: {fileID: 1556542653}
+
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1675347108
@@ -11488,7 +11511,6 @@ MonoBehaviour:
   OnMove:
     m_PersistentCalls:
       m_Calls: []
-  ClimbState: {fileID: 1675347112}
 --- !u!114 &1675347111
 MonoBehaviour:
   m_ObjectHideFlags: 0

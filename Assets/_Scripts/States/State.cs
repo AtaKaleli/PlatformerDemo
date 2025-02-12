@@ -7,9 +7,10 @@ using UnityEngine.Events;
 public abstract class State : MonoBehaviour
 {
     protected Agent agent;
-
-
     public UnityEvent OnEnter,OnExit; // those are used for only one time happened animations, like jump and fall
+
+
+
 
     public void InitializeState(Agent agent)
     {

@@ -26,8 +26,10 @@ public class Deadzone : MonoBehaviour
 
             var damagable = agent.GetComponent<Damagable>();
 
+
             if (damagable != null)
                 damagable.GetHit(agent.gameObject, 1);
+
 
             agent.AgentDied();
 

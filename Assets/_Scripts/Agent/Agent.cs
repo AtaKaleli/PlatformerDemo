@@ -18,13 +18,14 @@ public class Agent : MonoBehaviour
     [HideInInspector] public AgentWeaponManager agentWeapon;
 
 
-
     private State currentState = null;
 
     [HideInInspector] public StateFactory stateFactory;
 
+
     public UnityEvent OnRespawnRequired;
     public UnityEvent OnAgentDie;
+
 
 
     private void Awake()
@@ -39,8 +40,10 @@ public class Agent : MonoBehaviour
         stateFactory = GetComponentInChildren<StateFactory>();
         damagable = GetComponent<Damagable>();
 
-        stateFactory.InitializeStates(this);
 
+
+
+        stateFactory.InitializeStates(this);
     }
 
 
@@ -54,6 +57,7 @@ public class Agent : MonoBehaviour
     {
         ChangeState(stateFactory.GetState(StateType.Idle));
         damagable.InitializeHealth(agentData.health);
+
     }
 
     private void Update()
@@ -67,6 +71,8 @@ public class Agent : MonoBehaviour
         groundDetector.CheckIsGrounded();
         currentState.FixedUpdateState();
     }
+
+
 
 
 

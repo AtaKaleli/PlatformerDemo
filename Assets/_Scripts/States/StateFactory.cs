@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 
@@ -11,15 +10,18 @@ public enum StateType
     Jump,
     Fall,
     Climb,
-    Attack
+    Attack,
+    GetHit,
+    Die
 }
+
+
 
 
 public class StateFactory : MonoBehaviour
 {
     [SerializeField]
-    private State Idle, Move, Jump, Fall, Climb, Attack;
-
+    private State Idle, Move, Jump, Fall, Climb, Attack, GetHit, Die;
 
 
 
@@ -31,7 +33,9 @@ public class StateFactory : MonoBehaviour
         StateType.Fall => Fall,
         StateType.Climb => Climb,
         StateType.Attack => Attack,
-        _ => throw new System.Exception("State not defined : " + stateType.ToString())
+        StateType.GetHit => GetHit,
+        StateType.Die => Die,
+        _ => throw new System.Exception("State not defined " + stateType.ToString())
     };
 
     public void InitializeStates(Agent agent)
@@ -43,8 +47,5 @@ public class StateFactory : MonoBehaviour
         }
     }
 
-
-
-
-
 }
+

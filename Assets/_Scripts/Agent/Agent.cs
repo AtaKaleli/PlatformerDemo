@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using WeaponSystem;
@@ -18,16 +14,18 @@ public class Agent : MonoBehaviour
     public GroundDetector groundDetector;
     public ClimbDetector climbDetector;
     private Damagable damagable;
-    
-    [HideInInspector] public AgentWeaponManager agentWeapon;
-    
 
-    
+    [HideInInspector] public AgentWeaponManager agentWeapon;
+
+
     private State currentState = null;
 
     [HideInInspector] public StateFactory stateFactory;
 
-   public UnityEvent OnRespawnRequired;
+
+    public UnityEvent OnRespawnRequired;
+    public UnityEvent OnAgentDie;
+
 
 
     private void Awake()
@@ -42,10 +40,13 @@ public class Agent : MonoBehaviour
         stateFactory = GetComponentInChildren<StateFactory>();
         damagable = GetComponent<Damagable>();
 
+
+
+
         stateFactory.InitializeStates(this);
     }
 
-    
+
 
     private void Start()
     {
@@ -55,7 +56,8 @@ public class Agent : MonoBehaviour
     private void InitializeAgent()
     {
         ChangeState(stateFactory.GetState(StateType.Idle));
-        damagable.InitializeMaxHealth(agentData.health);
+        damagable.InitializeHealth(agentData.health);
+
     }
 
     private void Update()
@@ -71,16 +73,19 @@ public class Agent : MonoBehaviour
     }
 
 
+
+
+
     public void ChangeState(State newState)
     {
-        if(currentState != null)
+        if (currentState != null)
         {
             currentState.Exit();
         }
 
         currentState = newState;
 
-        if(currentState != null)
+        if (currentState != null)
         {
             currentState.Enter();
         }
@@ -88,13 +93,20 @@ public class Agent : MonoBehaviour
 
     public void AgentDied()
     {
-        OnRespawnRequired?.Invoke();
+        if (damagable.CurrentHealth > 0)
+        {
+            OnRespawnRequired?.Invoke();
+        }
+        else
+        {
+            currentState.Die(); // responsible for transition to die state
+        }
     }
 
     public void AgentGetHit()
     {
-        // to be implemented
+        currentState.GetHit(); // responsible for transition to hit state
     }
-   
-   
+
+
 }

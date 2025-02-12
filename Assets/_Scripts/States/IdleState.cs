@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class IdleState : State
 {
-    
-    
+
 
     protected override void EnterState()
     {

@@ -20,16 +20,16 @@ public class Deadzone : MonoBehaviour
 
             if(agent == null)
             {
-                Destroy(gameObject);
+                Destroy(collision.gameObject);
                 return;
             }
 
             var damagable = agent.GetComponent<Damagable>();
-            
-            if(damagable != null)
-            {
+
+
+            if (damagable != null)
                 damagable.GetHit(agent.gameObject, 1);
-            }
+
 
             agent.AgentDied();
 

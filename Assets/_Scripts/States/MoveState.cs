@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class MoveState : State
 {
     protected MovementData movementData;
+
     public UnityEvent OnMove;
 
 

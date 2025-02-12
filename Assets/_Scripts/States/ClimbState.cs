@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class ClimbState : State
 {
     private float previousGravityScale = 2f;
+
     public UnityEvent OnClimb;
     
 
@@ -44,7 +45,9 @@ public class ClimbState : State
 
         if (!agent.climbDetector.CanClimb)
         {
-            agent.ChangeState(agent.stateFactory.GetState(StateType.Jump));
+
+            agent.ChangeState(agent.stateFactory.GetState(StateType.Idle));
+
         }
     }
 

@@ -1,21 +1,28 @@
+
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using WeaponSystem;
 
 public class Damagable : MonoBehaviour, IHittable
 {
-
     [SerializeField] private int maxHealth;
     [SerializeField] private int currentHealth;
+
+    public UnityEvent<int> OnHealthValueChange;
+
+    public UnityEvent<int> OnInitializeMaxHealth;
+
 
     public UnityEvent OnGetHit;
     public UnityEvent OnDie;
     public UnityEvent OnAddHealth;
 
-    public UnityEvent<int> OnInitializeMaxHealth;
-    public UnityEvent<int> OnDetectCurrentHealth;
 
+    
+    public int CurrentHealth 
 
-    public int CurrentHealth
     {
         get => currentHealth;
         set
@@ -31,11 +38,14 @@ public class Damagable : MonoBehaviour, IHittable
 
 
 
+
     public void GetHit(GameObject gameObject, int weaponDamage)
     {
         CurrentHealth -= weaponDamage;
 
-        if(currentHealth <= 0)
+
+        if(CurrentHealth <= 0)
+
         {
             OnDie?.Invoke();
         }
@@ -45,21 +55,20 @@ public class Damagable : MonoBehaviour, IHittable
         }
     }
 
-    public void InitializeMaxHealth(int value)
+
+    public void AddHealth(int val)
     {
-        maxHealth = value;
+        CurrentHealth = Mathf.Clamp(CurrentHealth + val, 0, maxHealth);
+        OnAddHealth?.Invoke();
+    }
+
+    public void InitializeHealth(int health)
+    {
+        maxHealth = health;
         OnInitializeMaxHealth?.Invoke(maxHealth);
         CurrentHealth = maxHealth;
     }
 
-    public void AddHealth(int value)
-    {
-        CurrentHealth = Mathf.Clamp(CurrentHealth + value, 0, maxHealth);
-        OnAddHealth?.Invoke();
-    }
-
-
-
-
+   
 
 }

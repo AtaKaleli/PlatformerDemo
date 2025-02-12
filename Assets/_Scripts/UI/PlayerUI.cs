@@ -15,9 +15,15 @@ public class PlayerUI : MonoBehaviour
         pointUI = GetComponentInChildren<PointUI>();
     }
 
-    public void InitializeHealth(int maxHealth)
+
+    
+
+    public void InitializeMaxHealth(int maxHealth)
     {
+
+
         healthUI.InitializeMaxHealth(maxHealth);
+
     }
 
     public void SetHealth(int currentHealth)

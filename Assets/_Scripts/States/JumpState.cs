@@ -9,8 +9,6 @@ public class JumpState : MoveState
 
     private bool jumpPressed;
 
-    
- 
 
 
     protected override void EnterState()

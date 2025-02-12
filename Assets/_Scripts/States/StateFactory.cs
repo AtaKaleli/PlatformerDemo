@@ -8,7 +8,9 @@ public enum StateType
     Jump,
     Fall,
     Climb,
-    Attack
+    Attack,
+    GetHit,
+    Die
 }
 
 
@@ -17,7 +19,7 @@ public enum StateType
 public class StateFactory : MonoBehaviour
 {
     [SerializeField]
-    private State Idle, Move, Jump, Fall, Climb, Attack;
+    private State Idle, Move, Jump, Fall, Climb, Attack, GetHit, Die;
 
 
 
@@ -31,6 +33,8 @@ public class StateFactory : MonoBehaviour
         StateType.Fall => Fall,
         StateType.Climb => Climb,
         StateType.Attack => Attack,
+        StateType.GetHit => GetHit,
+        StateType.Die => Die,
         _ => throw new System.Exception("State not defined " + stateType.ToString())
     };
 

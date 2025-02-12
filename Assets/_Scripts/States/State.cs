@@ -104,5 +104,15 @@ public abstract class State : MonoBehaviour
         TestAttackTransition();
     }
 
+    public virtual void GetHit()
+    {
+        agent.ChangeState(agent.stateFactory.GetState(StateType.GetHit));
+    }
+
+    public virtual void Die()
+    {
+        agent.ChangeState(agent.stateFactory.GetState(StateType.Die));
+    }
+
     #endregion
 }

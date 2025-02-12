@@ -30,7 +30,6 @@ public class HealthUI : MonoBehaviour
 
     public void SetHealths(int currentHealth)
     {
-        print(currentHealth);
         for (int i = 0; i < healthImages.Count; i++)
         {
             if(i < currentHealth)

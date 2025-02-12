@@ -55,4 +55,5 @@ public class Damagable : MonoBehaviour, IHittable
         CurrentHealth = maxHealth;
     }
 
+   
 }

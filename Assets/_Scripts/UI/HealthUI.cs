@@ -9,21 +9,28 @@ public class HealthUI : MonoBehaviour
 
     [SerializeField] private Sprite fullHeart, emptyHeart;
 
+    [SerializeField] private GameObject lifePrefab;
 
-
-    public void Initialize()
+    public void InitializeMaxHealth(int maxHealth)
     {
         healths = new List<LifeElementUI>();
 
-        foreach (Transform life in transform)
+        foreach (Transform child in transform)
         {
+            Destroy(child.gameObject);
+        }
+
+        for (int i = 0; i < maxHealth; i++)
+        {
+            var life = Instantiate(lifePrefab);
+            life.transform.SetParent(transform, false);
             healths.Add(life.GetComponent<LifeElementUI>());
         }
     }
 
     public void SetHealths(int currentHealth)
     {
-        for (int i = 0; i < healths.Capacity; i++)
+        for (int i = 0; i < healths.Count; i++)
         {
             if(i < currentHealth)
             {

@@ -53,7 +53,7 @@ public class ClimbState : State
 
     private void HandleMovementOnLadder()
     {
-        if (agent.agentInput.MovementVector.magnitude > 0) // if we are pressing any input key
+        if (agent.agentInput.MovementVector.magnitude > 0) // if we are pressing any input key on the ladded
         {
             agent.animationController.StartAnimation();
             agent.rb.velocity = new Vector2(agent.agentInput.MovementVector.x * agent.agentData.climbHorizontalSpeed,

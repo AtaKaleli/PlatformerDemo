@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundDetector : MonoBehaviour
@@ -9,7 +7,7 @@ public class GroundDetector : MonoBehaviour
 
 
     [Header("Gizmo Information")]
-    [Range(-2f,2f)]
+    [Range(-2f, 2f)]
     [SerializeField] private float boxCastXOffset = 0.5f;
     [Range(-2f, 2f)]
     [SerializeField] private float boxCastYOffset = 0.5f;
@@ -34,18 +32,20 @@ public class GroundDetector : MonoBehaviour
 
     public bool CheckIsGrounded()
     {
+
         RaycastHit2D rayCastHit = Physics2D.BoxCast(agentGroundCollider.bounds.center + new Vector3(boxCastXOffset, boxCastYOffset, 0),
-            new Vector3(boxCastWidth, boxCastHeight, 0), 0, Vector2.down, 0, groundLayer);
+        new Vector3(boxCastWidth, boxCastHeight, 0), 0, Vector2.down, 0, groundLayer);
 
         if (rayCastHit.collider != null)
         {
-            if(rayCastHit.collider.IsTouching(agentGroundCollider))
+            if (rayCastHit.collider.IsTouching(agentGroundCollider))
                 isGrounded = true;
         }
         else
         {
             isGrounded = false;
         }
+
 
         return isGrounded;
     }
@@ -59,12 +59,12 @@ public class GroundDetector : MonoBehaviour
 
         Gizmos.color = gizmoColorNotGrounded;
 
-        if(isGrounded)
+        if (isGrounded)
             Gizmos.color = gizmoColorIsGrounded;
 
         Gizmos.DrawWireCube(agentGroundCollider.bounds.center + new Vector3(boxCastXOffset, boxCastYOffset, 0), new Vector3(boxCastWidth, boxCastHeight, 0));
     }
 
-    
+
 
 }

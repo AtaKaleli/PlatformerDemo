@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInput : MonoBehaviour, IAgentInput
 {
     public Vector2 MovementVector { get; private set; }
 

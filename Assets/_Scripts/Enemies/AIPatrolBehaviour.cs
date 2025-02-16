@@ -19,6 +19,7 @@ namespace MG.AI
                 changeDirectionDetector = GetComponentInChildren<AIEndPlatformDetector>();
 
         }
+        
 
         private void Start()
         {
@@ -30,7 +31,7 @@ namespace MG.AI
         {
             movementVector *= new Vector2(-1, 0); // change x direction
         }
-
+        
         public override void PerformAction(AIEnemy enemyAI)
         {
             enemyAI.MovementVector = movementVector;

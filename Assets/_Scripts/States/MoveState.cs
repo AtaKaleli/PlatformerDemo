@@ -27,7 +27,6 @@ public class MoveState : State
     public override void UpdateState()
     {
         base.UpdateState();
-        
         CalculateVelocity();
         SetPlayerVelocity(); // finally, set the player rb velocity
 

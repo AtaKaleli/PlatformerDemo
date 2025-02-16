@@ -700,6 +700,10 @@ PrefabInstance:
       propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 9044664864662288202}
+    - target: {fileID: 3484750944581197162, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: club
+      value: 
+      objectReference: {fileID: 11400000, guid: 6b6cdc5b0c5ccfd41a933e13cc31d46c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
 --- !u!4 &9044664866356274189 stripped

@@ -14,7 +14,7 @@ public class Deadzone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(fallenObjectLayerMask == 1 << collision.gameObject.layer)
+        if ((fallenObjectLayerMask & (1 << collision.gameObject.layer)) != 0) // compare if the desired layer is matched
         {
             Agent agent = collision.GetComponent<Agent>();
 

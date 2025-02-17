@@ -18,7 +18,7 @@ namespace WeaponSystem
         public UnityEvent OnMultipleWeapons;
         public UnityEvent OnWeaponPickUp;
 
-        [SerializeField] private WeaponData club;
+        [SerializeField] private WeaponData startingWeapon;
 
         private void Awake()
         {
@@ -29,7 +29,12 @@ namespace WeaponSystem
 
         private void Start()
         {
-            weaponStorage.AddWeapon(club); 
+            GiveAgentAWeapon();
+        }
+
+        private void GiveAgentAWeapon()
+        {
+            weaponStorage.AddWeapon(startingWeapon);
         }
 
         public void ToggleWeaponVisibility(bool value)

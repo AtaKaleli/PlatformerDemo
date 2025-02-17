@@ -636,6 +636,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Agent
       objectReference: {fileID: 0}
+    - target: {fileID: 3484750943017229633, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3484750943017229634, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -700,8 +704,20 @@ PrefabInstance:
       propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 9044664864662288202}
+    - target: {fileID: 3484750944093699101, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484750944093699101, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 969563427
+      objectReference: {fileID: 0}
     - target: {fileID: 3484750944581197162, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
       propertyPath: club
+      value: 
+      objectReference: {fileID: 11400000, guid: 6b6cdc5b0c5ccfd41a933e13cc31d46c, type: 2}
+    - target: {fileID: 3484750944581197162, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: startingWeapon
       value: 
       objectReference: {fileID: 11400000, guid: 6b6cdc5b0c5ccfd41a933e13cc31d46c, type: 2}
     m_RemovedComponents: []

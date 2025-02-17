@@ -52,7 +52,9 @@ namespace MG.AI
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            OnPathBlocked?.Invoke(); // we want to inform enemy that we have collided with smt
+            
+            if(collision.gameObject.layer != LayerMask.NameToLayer("Player"))
+                OnPathBlocked?.Invoke(); // we want to inform enemy that we have collided with smt
         }
 
         private void OnDrawGizmos()

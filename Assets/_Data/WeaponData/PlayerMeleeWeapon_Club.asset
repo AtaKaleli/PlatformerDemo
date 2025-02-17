@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87225f0f38079ce43865eccec3135b36, type: 3}
-  m_Name: MeleeWeapon_Club 1
+  m_Name: PlayerMeleeWeapon_Club
   m_EditorClassIdentifier: 
   weaponName: Club
   weaponSprite: {fileID: 21300000, guid: dc1a5260470ab9d43a040c4e9c89bead, type: 3}

@@ -97,7 +97,7 @@ MonoBehaviour:
   OnPlayerDetected:
     m_PersistentCalls:
       m_Calls: []
-  radius: 0.31
+  radius: 0.56
   gizmoColor: {r: 0, g: 1, b: 0, a: 0.5529412}
   showGizmos: 1
 --- !u!1 &4871769376238432377
@@ -188,7 +188,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5996514393645334628}
   - component: {fileID: 7740762931473447184}
-  m_Layer: 14
+  - component: {fileID: 1409449261198889259}
+  m_Layer: 0
   m_Name: Lizard Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,6 +227,18 @@ MonoBehaviour:
   agentGroundDetector: {fileID: 6579071255185536192}
   attackBehaviour: {fileID: 7419385681242464992}
   patrolBehaviour: {fileID: 2018138008056845247}
+--- !u!114 &1409449261198889259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5148529763520111174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bef06246da70643ada157041cfbf78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7333958534099230619
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,8 +387,52 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 430b83b10cde7de4888daa25ac78400b, type: 2}
     - target: {fileID: 3484750943017229636, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: OnAgentDie.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484750943017229636, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
       propertyPath: OnRespawnRequired.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484750943017229636, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: OnAgentDie.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484750943017229636, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: OnAgentDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1409449261198889259}
+    - target: {fileID: 3484750943017229636, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: OnAgentDie.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484750943017229636, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: OnAgentDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DestroySelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484750943017229636, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: OnRespawnRequired.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1409449261198889259}
+    - target: {fileID: 3484750943017229636, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: OnRespawnRequired.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DestroySelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484750943017229636, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: OnAgentDie.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DestroyMe, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484750943017229636, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: OnRespawnRequired.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DestroyMe, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484750943017229636, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: OnAgentDie.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484750943017229636, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: OnRespawnRequired.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3484750943017229638, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
       propertyPath: m_Size.x
@@ -431,7 +488,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: d16bc037559a1a9459bf0766771e943e, type: 3}
     - target: {fileID: 3484750943878973523, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
       propertyPath: m_Layer
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3484750943878973525, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
       propertyPath: m_Size.x
@@ -521,6 +578,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 3484750944581197162, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
+      propertyPath: startingWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 29125fabb279a804f803d989efea4618, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 358705b2ee27c484b86a6ceb477c8197, type: 3}
 --- !u!4 &6579071254307004885 stripped

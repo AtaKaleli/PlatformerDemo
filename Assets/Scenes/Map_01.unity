@@ -16991,7 +16991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallenObjectLayerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 16392
 --- !u!61 &2077853589
 BoxCollider2D:
   m_ObjectHideFlags: 0

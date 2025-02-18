@@ -13,6 +13,8 @@ public class AttackState : State
 
     public UnityEvent<AudioClip> OnWeaponSound;
 
+    [SerializeField] private bool showGizmos;
+
     protected override void EnterState()
     {
         agent.animationController.PlayAnimation(AnimationType.attack);
@@ -34,6 +36,14 @@ public class AttackState : State
     {
         OnWeaponSound?.Invoke(agent.agentWeapon.GetCurrentWeapon().weaponSwingSound);
         agent.agentWeapon.GetCurrentWeapon().PerformAttack(agent, hittableLayerMask, direction);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if(!Application.isPlaying || !showGizmos) { return; }
+
+        Gizmos.color = Color.red;
+        agent.agentWeapon.GetCurrentWeapon().DrawWeaponGizmo(agent.transform.position, direction);
     }
 
 

@@ -1005,7 +1005,7 @@ MonoBehaviour:
   OnWeaponPickUp:
     m_PersistentCalls:
       m_Calls: []
-  club: {fileID: 11400000, guid: 29125fabb279a804f803d989efea4618, type: 2}
+  initialWeapon: {fileID: 11400000, guid: 29125fabb279a804f803d989efea4618, type: 2}
 --- !u!212 &201876707
 SpriteRenderer:
   m_ObjectHideFlags: 0

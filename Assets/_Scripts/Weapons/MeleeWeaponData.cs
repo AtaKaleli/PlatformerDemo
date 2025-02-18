@@ -18,7 +18,7 @@ namespace WeaponSystem
         }
         public override void PerformAttack(Agent agent, LayerMask hittableMask, Vector3 direction)
         {
-            RaycastHit2D hit = Physics2D.Raycast(agent.agentWeapon.transform.position, direction, attackRange, hittableMask);
+            RaycastHit2D hit = Physics2D.Raycast(agent.transform.position, direction, attackRange, hittableMask);
             
             if(hit.collider != null)
             {
@@ -31,7 +31,10 @@ namespace WeaponSystem
             }
         }
 
- 
+        public override void DrawWeaponGizmo(Vector3 origin, Vector3 direction)
+        {
+            Gizmos.DrawLine(origin, origin + direction * attackRange);
+        }
 
 
     }

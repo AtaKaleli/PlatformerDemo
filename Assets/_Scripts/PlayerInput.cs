@@ -1,16 +1,18 @@
 using System;
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInput : MonoBehaviour, IAgentInput
 {
-    public Vector2 MovementVector { get; private set; }
-
-    public event Action<Vector2> OnMovement;
-
-    public event Action OnJumpPressed, OnJumpReleased, OnAttack;
+    
 
     public KeyCode jumpKey, attackKey;
 
+    public event Action<Vector2> OnMovement;
+    public event Action OnJumpPressed;
+    public event Action OnJumpReleased;
+    public event Action OnAttack;
+
+    public Vector2 MovementVector { get; private set; }
 
     private void Update()
     {

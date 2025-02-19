@@ -40,7 +40,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6900856357899037008}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9623fb255b3c641478b35899ec3ad763, type: 3}
   m_Name: 
@@ -263,9 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63508b76d0e320b43b2d5f6a1b1c7630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentData: {fileID: 11400000, guid: 5a55348b50672e8459c1b2afd68cd23a, type: 2}
+  agentData: {fileID: 11400000, guid: 24b2820265f52b94cb146f9c703dfc49, type: 2}
   rb: {fileID: 0}
-  agentInput: {fileID: 0}
   animationController: {fileID: 0}
   agentRenderer: {fileID: 0}
   groundDetector: {fileID: 0}
@@ -274,19 +273,7 @@ MonoBehaviour:
   stateFactory: {fileID: 0}
   OnRespawnRequired:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: RespawnSystem.RespawnPointManager, Assembly-CSharp
-        m_MethodName: Respawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnAgentDie:
     m_PersistentCalls:
       m_Calls: []
@@ -1347,7 +1334,7 @@ MonoBehaviour:
   OnWeaponPickUp:
     m_PersistentCalls:
       m_Calls: []
-  initialWeapon: {fileID: 11400000, guid: 29125fabb279a804f803d989efea4618, type: 2}
+  initialWeapon: {fileID: 11400000, guid: 15769a25ee2cf0c46bda3d9d72c92b9e, type: 2}
 --- !u!1 &9115155357542581148
 GameObject:
   m_ObjectHideFlags: 0

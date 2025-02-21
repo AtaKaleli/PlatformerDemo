@@ -22,10 +22,8 @@ namespace WeaponSystem
             
             if(hit.collider != null)
             {
-   
                 foreach (var hittable in hit.collider.GetComponents<IHittable>())
                 {
-
                     hittable.GetHit(agent.gameObject, weaponDamage);
                 }
             }

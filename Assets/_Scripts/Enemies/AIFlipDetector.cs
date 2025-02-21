@@ -48,7 +48,7 @@ public class AIFlipDetector : MonoBehaviour
 
 
 
-    /*
+    /* can be use to flip the enemy if it faces some obstacle in future, like platforms, obstacles, walls etc
     private void OnTriggerEnter2D(Collider2D collision)
     {
         OnPathBlocked?.Invoke();

@@ -15111,11 +15111,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 362963614538991611, guid: 23e49603813a76144a63b13df33185d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 49.5
+      value: 30.61
       objectReference: {fileID: 0}
     - target: {fileID: 362963614538991611, guid: 23e49603813a76144a63b13df33185d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.68
+      value: 2.44
       objectReference: {fileID: 0}
     - target: {fileID: 362963614538991611, guid: 23e49603813a76144a63b13df33185d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15149,21 +15149,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1804917607117226990, guid: 23e49603813a76144a63b13df33185d2, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 5308411984306096551, guid: 23e49603813a76144a63b13df33185d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 6900856357899037008, guid: 23e49603813a76144a63b13df33185d2, type: 3}
       propertyPath: m_Name
       value: Enemy_Lizard
-      objectReference: {fileID: 0}
-    - target: {fileID: 9115155356787327336, guid: 23e49603813a76144a63b13df33185d2, type: 3}
-      propertyPath: boxCastWidth
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9115155356787327336, guid: 23e49603813a76144a63b13df33185d2, type: 3}
-      propertyPath: boxCastXOffset
-      value: -0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23e49603813a76144a63b13df33185d2, type: 3}

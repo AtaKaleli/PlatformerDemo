@@ -4,15 +4,10 @@ namespace MG.AI
 {
     public class AIPatrolBehaviour : AIBehaviour
     {
-        public AIFlipDetector aiFlipDetector;
+        [SerializeField] private AIFlipDetector aiFlipDetector;
         private Vector2 movementVector;
 
 
-        private void Awake()
-        {
-            if (aiFlipDetector == null)
-                aiFlipDetector = GetComponentInChildren<AIFlipDetector>();
-        }
 
         private void Start()
         {

@@ -2854,7 +2854,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000135e8f9bc989dd3881a9e729cff28948235dca399538074587e47710d7a08ff70bc73f90
+  m_ApplyToSortingLayers: 00000000135e8f9bc989dd3881a9e729cff28948e33ad0a1235dca399538074587e47710d7a08ff70bc73f90
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -15363,6 +15363,14 @@ PrefabInstance:
     - target: {fileID: 8838502603235391802, guid: 0c7b7ccb389ed9e4b8f5aa66b63e856c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8838502603724327713, guid: 0c7b7ccb389ed9e4b8f5aa66b63e856c, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8838502603724327713, guid: 0c7b7ccb389ed9e4b8f5aa66b63e856c, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 969563427
       objectReference: {fileID: 0}
     - target: {fileID: 8838502604792932984, guid: 0c7b7ccb389ed9e4b8f5aa66b63e856c, type: 3}
       propertyPath: OnRespawnRequired.m_PersistentCalls.m_Calls.Array.data[0].m_Target

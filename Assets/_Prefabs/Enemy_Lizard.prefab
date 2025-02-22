@@ -253,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeAttackDetector: {fileID: 5143728741385950542}
+  delayBeforeAttack: 1.5
 --- !u!1 &6900856357899037008
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 362963614538991611}
   - component: {fileID: 1477900832028262385}
+  - component: {fileID: 6716049752346890840}
   m_Layer: 0
   m_Name: Enemy_Lizard
   m_TagString: Untagged
@@ -301,6 +303,18 @@ MonoBehaviour:
   agentGroundDetector: {fileID: 9115155356787327336}
   patrolBehaviour: {fileID: 4401806011413005897}
   attackBehaviour: {fileID: 8787350666539027182}
+--- !u!114 &6716049752346890840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6900856357899037008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9bd121e6eea83f478be59b47d91c8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9115155356014606403
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,10 +544,34 @@ MonoBehaviour:
   stateFactory: {fileID: 0}
   OnRespawnRequired:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6716049752346890840}
+        m_TargetAssemblyTypeName: DestroyMe, Assembly-CSharp
+        m_MethodName: DestroyMeEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnAgentDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6716049752346890840}
+        m_TargetAssemblyTypeName: DestroyMe, Assembly-CSharp
+        m_MethodName: DestroyMeEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9115155356025885818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,18 +981,6 @@ MonoBehaviour:
   OnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 9115155356845139929}
         m_TargetAssemblyTypeName: AudioFeedback, Assembly-CSharp
         m_MethodName: PlayClip
@@ -1326,8 +1352,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 703048065
-  m_SortingLayer: 3
+  m_SortingLayerID: -1580188957
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 3148971304039954403, guid: d778aba77226b114284848fbd47ef254, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1557,7 +1583,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1158101141
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dc1a5260470ab9d43a040c4e9c89bead, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

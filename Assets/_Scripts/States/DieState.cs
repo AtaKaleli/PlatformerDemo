@@ -11,6 +11,7 @@ public class DieState : State
 
     protected override void EnterState()
     {
+        print("enter state");
         agent.animationController.PlayAnimation(AnimationType.die);
         agent.animationController.OnAnimationEnd.AddListener(WaitBeforeDieAction);
         
@@ -24,12 +25,15 @@ public class DieState : State
 
     private IEnumerator WaitCoroutine()
     {
+        print("in the coeoutine;");
         yield return new WaitForSeconds(timeToWaitBeforeDie);
+        print("coroutine done");
         agent.OnAgentDie?.Invoke();
     }
 
     protected override void ExitState()
     {
+        print("exit");
         StopAllCoroutines();
         agent.animationController.ResetEventListeners();
     }

@@ -18,11 +18,6 @@ public class Deadzone : MonoBehaviour
         {
             Agent agent = collision.GetComponent<Agent>();
 
-            if(agent == null)
-            {
-                Destroy(collision.gameObject);
-                return;
-            }
 
             var damagable = agent.GetComponent<Damagable>();
 

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class AttackState : State
 {
-    
+
     public LayerMask hittableLayerMask;
 
     protected Vector2 direction;

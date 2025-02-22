@@ -3,10 +3,7 @@ using UnityEngine.Events;
 
 public class FallState : MoveState
 {
-    public State ClimbState;
-
-
-
+    
     protected override void EnterState()
     {
         agent.animationController.PlayAnimation(AnimationType.fall);

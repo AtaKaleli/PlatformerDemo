@@ -10,7 +10,7 @@ public class Deadzone : MonoBehaviour
     [SerializeField] private LayerMask fallenObjectLayerMask;
 
     
-
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

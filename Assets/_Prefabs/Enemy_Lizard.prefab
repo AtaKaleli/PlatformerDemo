@@ -457,6 +457,7 @@ GameObject:
   - component: {fileID: 9115155356025885819}
   - component: {fileID: 9115155356025885818}
   - component: {fileID: 9115155356025885816}
+  - component: {fileID: 6053419111497122361}
   m_Layer: 14
   m_Name: Agent
   m_TagString: Player
@@ -665,6 +666,19 @@ MonoBehaviour:
   OnAddHealth:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6053419111497122361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9115155356025885822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134f031d2e8c9d44ba86a8784a4695b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 10
 --- !u!1 &9115155356035085333
 GameObject:
   m_ObjectHideFlags: 0

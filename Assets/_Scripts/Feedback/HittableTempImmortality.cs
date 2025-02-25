@@ -16,7 +16,7 @@ namespace MG.Feedback
         [SerializeField] private float flashDelay = 0.1f;
         [SerializeField] private float flashAlpha = 0.5f;
 
-        
+        //making collider disabled after each hit leads to bugs, like agent enter a wall or do not detect deadzone, try to fix it
 
         private void Awake()
         {
@@ -27,6 +27,8 @@ namespace MG.Feedback
 
         public void GetHit(GameObject opponent, int weaponDamage)
         {
+            if (!this.enabled) { return; }
+                
             StartCoroutine(ResetCollider());
             StartCoroutine(FlashSprite(flashAlpha));
             ToggleCollider(false);

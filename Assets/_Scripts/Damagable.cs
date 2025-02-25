@@ -28,6 +28,8 @@ public class Damagable : MonoBehaviour, IHittable
         }
     }
 
+
+    // get access to agent and try to call the state changes here
     public void GetHit(GameObject gameObject, int weaponDamage)
     {
         CurrentHealth -= weaponDamage;

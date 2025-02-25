@@ -30,7 +30,6 @@ public class DieState : State
 
     protected override void ExitState()
     {
-        print("exit");
         StopAllCoroutines();
         agent.animationController.ResetEventListeners();
     }

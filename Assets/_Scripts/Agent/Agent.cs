@@ -85,6 +85,10 @@ public class Agent : MonoBehaviour
         }
     }
 
+    // try to mix the agent get hit and died method in one piece, and try to call this method in unity events
+
+    // after , modify it again to move this method into damageable so that agent is clearer and damagable is responsible for what it needs to do
+
     public void AgentDied()
     {
         if (damagable.CurrentHealth > 0)

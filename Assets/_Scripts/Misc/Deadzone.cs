@@ -10,7 +10,7 @@ public class Deadzone : MonoBehaviour
     [SerializeField] private LayerMask fallenObjectLayerMask;
 
     
-    
+    // try to solve the issue when agent is immortal, they are not colliding with trigger
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 642413904070424105}
   m_Layer: 14
   m_Name: Agent
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1035,6 +1035,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7724782023300562359}
+        m_TargetAssemblyTypeName: InstantiateUtil, Assembly-CSharp
+        m_MethodName: InstantiateObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnExit:
     m_PersistentCalls:
       m_Calls: []
@@ -1283,8 +1295,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9115155356845139930}
   - component: {fileID: 9115155356845139929}
+  - component: {fileID: 7724782023300562359}
   m_Layer: 0
-  m_Name: Die Audio Feedback
+  m_Name: Die Feedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1320,6 +1333,19 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: d16bc037559a1a9459bf0766771e943e, type: 3}
   targetAudioSource: {fileID: 9115155356014606401}
   volume: 0.437
+--- !u!114 &7724782023300562359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9115155356845139931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59122542070620b469cdea8d25159410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToInstantiatePrefab: {fileID: 6158207567015765879, guid: 6c71a6189bf3fe541aa660c7f7de5e44, type: 3}
 --- !u!1 &9115155357096391972
 GameObject:
   m_ObjectHideFlags: 0

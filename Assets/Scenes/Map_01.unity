@@ -15155,6 +15155,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.13
       objectReference: {fileID: 0}
+    - target: {fileID: 6053419111497122361, guid: 23e49603813a76144a63b13df33185d2, type: 3}
+      propertyPath: force
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6900856357899037008, guid: 23e49603813a76144a63b13df33185d2, type: 3}
       propertyPath: m_Name
       value: Enemy_Lizard

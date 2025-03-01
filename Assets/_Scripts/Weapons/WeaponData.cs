@@ -7,14 +7,14 @@ using UnityEngine;
 namespace WeaponSystem
 {
     //hold data of weapons
-    public abstract class WeaponData : ScriptableObject, IEquatable<WeaponData>
+    public abstract class WeaponData : ScriptableObject
     {
 
         public string weaponName;
         public Sprite weaponSprite;
         public int weaponDamage;
         public AudioClip weaponSwingSound;
-
+        public float attackRange;
 
 
 
@@ -26,12 +26,6 @@ namespace WeaponSystem
             
         }
 
-        
-
-        public bool Equals(WeaponData other)
-        {
-            return weaponName == other.weaponName;
-        }
 
         
     }

@@ -9,7 +9,7 @@ namespace WeaponSystem
     [CreateAssetMenu(menuName = "Weapons/MeleeWeaponData")]
     public class MeleeWeaponData : WeaponData
     {
-        public float attackRange;
+        
 
 
         public override bool CanBeUsed(bool isGrounded)

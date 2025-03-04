@@ -1,3 +1,5 @@
+using System;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.Events;
 using WeaponSystem;
@@ -48,6 +50,14 @@ public class Agent : MonoBehaviour
     private void Start()
     {
         InitializeAgent();
+        agentInput.OnSwapWeapon += SwapWeapon;
+    }
+
+    private void SwapWeapon()
+    {
+        if (agentWeapon == null) return;
+
+        agentWeapon.SwapWeapon();
     }
 
     private void InitializeAgent()
@@ -106,5 +116,11 @@ public class Agent : MonoBehaviour
         currentState.GetHit(); // responsible for transition to hit state
     }
 
+    public void PickUp(WeaponData weaponData)
+    {
+        if (agentWeapon == null) return;
+
+        agentWeapon.PickUpWeapon(weaponData);
+    }
 
 }

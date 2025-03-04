@@ -13,7 +13,7 @@ namespace MG.AI
         public event Action OnJumpPressed;
         public event Action OnJumpReleased;
         public event Action OnAttack;
-
+        public event Action OnSwapWeapon;
 
         public void CallOnMovement(Vector2 input)
         {

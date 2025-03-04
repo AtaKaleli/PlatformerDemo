@@ -11,4 +11,5 @@ public interface IAgentInput
     public event Action OnJumpPressed;
     public event Action OnJumpReleased;
     public event Action OnAttack;
+    public event Action OnSwapWeapon;
 }

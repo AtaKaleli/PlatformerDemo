@@ -5,12 +5,13 @@ public class PlayerInput : MonoBehaviour, IAgentInput
 {
     
 
-    public KeyCode jumpKey, attackKey;
+    public KeyCode jumpKey, attackKey, swapWeaponKey;
 
     public event Action<Vector2> OnMovement;
     public event Action OnJumpPressed;
     public event Action OnJumpReleased;
     public event Action OnAttack;
+    public event Action OnSwapWeapon;
 
     public Vector2 MovementVector { get; private set; }
 
@@ -21,6 +22,7 @@ public class PlayerInput : MonoBehaviour, IAgentInput
             GetMovementInput();
             GetJumpInput();
             GetAttackInput();
+            GetSwapWeaponInput();
         }
     }
 
@@ -55,5 +57,11 @@ public class PlayerInput : MonoBehaviour, IAgentInput
         }
     }
 
-
+    private void GetSwapWeaponInput()
+    {
+        if (Input.GetKeyDown(swapWeaponKey))
+        {
+            OnSwapWeapon?.Invoke();
+        }
+    }
 }

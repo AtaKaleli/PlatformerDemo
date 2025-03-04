@@ -40,7 +40,7 @@ public class AttackState : State
 
     private void OnDrawGizmos()
     {
-        if(!Application.isPlaying || !showGizmos) { return; }
+        if(!Application.isPlaying || !showGizmos || agent.agentWeapon.GetCurrentWeapon() == null) { return; }
 
         Gizmos.color = Color.red;
         agent.agentWeapon.GetCurrentWeapon().DrawWeaponGizmo(agent.transform.position, direction);

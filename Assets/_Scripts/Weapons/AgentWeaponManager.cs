@@ -29,7 +29,7 @@ namespace WeaponSystem
 
         private void Start()
         {
-            weaponStorage.AddWeapon(initialWeapon); 
+            //weaponStorage.AddWeapon(initialWeapon); 
         }
 
         public void ToggleWeaponVisibility(bool value)
@@ -73,7 +73,7 @@ namespace WeaponSystem
             if (!weaponStorage.AddWeapon(newWeapon))
                 return;
 
-            if(weaponStorage.WeaponCount > 1) // if we have more that one weapon
+            if(weaponStorage.WeaponCount == 2) // if we have more that one weapon
             {
                 OnMultipleWeapons?.Invoke();
             }
